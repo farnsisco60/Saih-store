@@ -19,7 +19,7 @@
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         img { max-width: 100%; display: block; }
 
-        /* --- شاشة اختيار اللغة --- */
+        /* --- شاشة اللغة --- */
         .lang-splash {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: white; z-index: 9999;
@@ -81,42 +81,27 @@
         .lang-option:hover { color: var(--primary-color); }
         .lang-option img { width: 20px; }
 
-        /* --- السلايدر --- */
+        /* --- السلايدر والمنتجات --- */
         .hero-slider { margin-bottom: 30px; border-radius: 0 0 20px 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
-        
-        /* --- المنتجات --- */
         .section-title { text-align: center; margin: 40px 0 30px; font-size: 26px; font-weight: 800; color: #222; }
         .section-title::after { content: ""; display: block; width: 60px; height: 4px; background: var(--danger-color); margin: 10px auto 0; border-radius: 2px; }
-        
         .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 15px; padding: 0 15px; max-width: 1200px; margin: 0 auto; }
-        
         .product-card { background: white; border-radius: 16px; padding: 12px; position: relative; box-shadow: 0 5px 20px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s; border: 1px solid #f0f0f0; }
-        .product-card:hover { transform: translateY(-3px); }
         
-        /* --- تنسيقات صور المنتج المتعددة --- */
+        /* صور المنتج المتعددة */
         .product-img-container { position: relative; width: 100%; aspect-ratio: 1/1; margin-bottom: 12px; border-radius: 12px; overflow: hidden; background: #f5f5f5; }
-        .product-img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s; }
+        .product-img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s; cursor: zoom-in; }
         
-        /* أسهم التنقل بين الصور */
         .img-nav-btn {
             position: absolute; top: 50%; transform: translateY(-50%);
-            width: 25px; height: 25px; background: rgba(255,255,255,0.8);
+            width: 30px; height: 30px; background: rgba(255,255,255,0.9);
             border-radius: 50%; border: none; color: #333;
             display: flex; justify-content: center; align-items: center;
-            cursor: pointer; font-size: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            z-index: 5; opacity: 0.8;
+            cursor: pointer; font-size: 14px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 5;
         }
-        .img-nav-btn:hover { background: white; opacity: 1; }
         .img-prev { left: 5px; }
         .img-next { right: 5px; }
-        
-        /* مؤشر عدد الصور (اختياري) */
-        .img-dots {
-            position: absolute; bottom: 5px; left: 0; width: 100%; 
-            text-align: center; display: flex; justify-content: center; gap: 3px; z-index: 4;
-        }
-        .dot { width: 6px; height: 6px; background: rgba(255,255,255,0.5); border-radius: 50%; }
-        .dot.active { background: var(--primary-color); }
 
         .discount-tag { position: absolute; top: 12px; right: 12px; background: var(--danger-color); color: white; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: bold; z-index: 2; box-shadow: 0 2px 5px rgba(208,2,27,0.2); }
         body[dir="ltr"] .discount-tag { right: auto; left: 12px; }
@@ -130,18 +115,17 @@
         .buy-now-btn { flex: 2; background: var(--primary-color); color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-family: inherit; font-size: 13px; cursor: pointer; box-shadow: 0 4px 10px rgba(7, 102, 224, 0.2); }
         .add-cart-btn { flex: 1; background: #eef5ff; color: var(--primary-color); border: 1px solid #dce9fc; border-radius: 8px; cursor: pointer; font-size: 16px; display: flex; justify-content: center; align-items: center; transition: 0.2s; }
 
-        /* --- الفوتر والموبايل --- */
+        /* --- الفوتر --- */
         .mobile-bottom-nav { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: white; box-shadow: 0 -5px 20px rgba(0,0,0,0.05); z-index: 1500; justify-content: space-around; padding: 12px 0; border-radius: 20px 20px 0 0; }
         .nav-item { display: flex; flex-direction: column; align-items: center; font-size: 10px; color: #888; cursor: pointer; gap: 4px; }
         .nav-item i { font-size: 18px; }
         .nav-item.active { color: var(--primary-color); font-weight: bold; }
-        
         .whatsapp-float { position: fixed; bottom: 90px; left: 20px; background: #25d366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1400; transition: transform 0.2s; }
         body[dir="ltr"] .whatsapp-float { left: auto; right: 20px; }
 
-        /* --- النوافذ المنبثقة (Modals) --- */
+        /* --- النوافذ المنبثقة --- */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 3000; justify-content: center; align-items: center; backdrop-filter: blur(4px); }
-        .modal-content { background: white; width: 90%; max-width: 420px; padding: 25px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); position: relative; animation: slideUp 0.3s ease; }
+        .modal-content { background: white; width: 90%; max-width: 420px; padding: 25px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); position: relative; animation: slideUp 0.3s ease; max-height: 90vh; overflow-y: auto; }
         
         @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
@@ -159,6 +143,10 @@
         }
         .form-input:focus { border-color: var(--primary-color); background: white; }
         
+        /* حقول اختيار اللون والمقاس */
+        .form-row { display: flex; gap: 10px; }
+        .form-row .form-group { flex: 1; }
+
         .submit-btn { 
             width: 100%; padding: 15px; 
             background: var(--success-color); color: white; 
@@ -171,10 +159,28 @@
         .close-modal-icon { position: absolute; top: 20px; right: 20px; font-size: 20px; color: #ccc; cursor: pointer; padding: 5px; }
         body[dir="ltr"] .close-modal-icon { right: auto; left: 20px; }
 
-        /* السلة */
         .cart-items-container { max-height: 60vh; overflow-y: auto; margin: 15px 0; }
         .cart-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; background: #fff; padding: 10px; border-radius: 12px; border: 1px solid #eee; }
         .cart-item img { width: 50px; height: 50px; border-radius: 8px; object-fit: cover; }
+
+        /* --- نافذة تكبير الصورة (Zoom Modal) مع أزرار التنقل --- */
+        .zoom-overlay { 
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.95); z-index: 5000; 
+            justify-content: center; align-items: center; 
+        }
+        .zoom-img { max-width: 100%; max-height: 80vh; border-radius: 5px; box-shadow: 0 0 20px rgba(0,0,0,0.5); object-fit: contain; }
+        .zoom-close { 
+            position: absolute; top: 20px; right: 20px; color: white; font-size: 30px; cursor: pointer; 
+            background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 5002;
+        }
+        .zoom-nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            color: white; font-size: 40px; cursor: pointer; padding: 20px; 
+            user-select: none; z-index: 5001; text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+        .zoom-prev { left: 10px; }
+        .zoom-next { right: 10px; }
 
         @media (max-width: 768px) { 
             .mobile-menu-btn { display: block; } 
@@ -185,7 +191,6 @@
 </head>
 <body>
 
-    <!-- شاشة اختيار اللغة -->
     <div class="lang-splash" id="langSplash" style="display:none;">
         <div class="lang-box">
             <img src="https://i.postimg.cc/g0ybBZ6t/IMG-20251126-205405-472.jpg" alt="Logo">
@@ -195,7 +200,14 @@
         </div>
     </div>
 
-    <!-- القائمة الجانبية -->
+    <!-- نافذة التكبير (Lightbox) -->
+    <div class="zoom-overlay" id="zoomModal">
+        <div class="zoom-close" onclick="closeZoom()">&times;</div>
+        <div class="zoom-nav-btn zoom-prev" onclick="navigateZoom(-1)">&#10094;</div>
+        <div class="zoom-nav-btn zoom-next" onclick="navigateZoom(1)">&#10095;</div>
+        <img src="" id="zoomedImage" class="zoom-img">
+    </div>
+
     <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
@@ -207,7 +219,6 @@
             <a href="#products" onclick="toggleSidebar()"><i class="fas fa-th-large"></i> <span data-i18n="products">المنتجات</span></a>
             <a href="#" onclick="openCart(); toggleSidebar()"><i class="fas fa-shopping-cart"></i> <span data-i18n="cart">سلة المشتريات</span></a>
             <a href="https://wa.me/212695050162" onclick="toggleSidebar()"><i class="fab fa-whatsapp"></i> <span data-i18n="contact">اتصل بنا</span></a>
-            
             <div class="lang-divider" data-i18n="language">اللغة / Language</div>
             <div class="lang-option" onclick="selectLanguage('ar'); toggleSidebar()"><img src="https://flagcdn.com/w20/ma.png"> العربية</div>
             <div class="lang-option" onclick="selectLanguage('en'); toggleSidebar()"><img src="https://flagcdn.com/w20/us.png"> English</div>
@@ -250,7 +261,7 @@
 
     <a href="https://wa.me/212695050162" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
-    <!-- نوافذ السلة والطلب -->
+    <!-- نافذة السلة -->
     <div class="modal-overlay" id="cartModal">
         <div class="modal-content">
             <i class="fas fa-times close-modal-icon" onclick="closeCart()"></i>
@@ -269,6 +280,7 @@
         </div>
     </div>
 
+    <!-- نافذة معلومات طلب السلة (مع الملاحظات) -->
     <div class="modal-overlay" id="cartOrderModal">
         <div class="modal-content">
             <i class="fas fa-times close-modal-icon" onclick="document.getElementById('cartOrderModal').style.display='none'"></i>
@@ -281,11 +293,16 @@
                 <div class="form-group"><label class="form-label" data-i18n="phone">رقم الهاتف</label><input type="tel" id="c_phone" class="form-input" required></div>
                 <div class="form-group"><label class="form-label" data-i18n="city">المدينة</label><input type="text" id="c_city" class="form-input" required></div>
                 <div class="form-group"><label class="form-label" data-i18n="address">العنوان بالتفصيل</label><input type="text" id="c_address" class="form-input" required></div>
+                
+                <!-- حقل الملاحظات للسلة -->
+                <div class="form-group"><label class="form-label" data-i18n="notes">ملاحظات (الألوان/المقاسات)</label><textarea id="c_notes" class="form-input" placeholder="اكتب تفاصيل المنتجات هنا..."></textarea></div>
+
                 <button type="submit" class="submit-btn"><span data-i18n="confirm_whatsapp">تأكيد الطلب عبر واتساب</span> <i class="fab fa-whatsapp"></i></button>
             </form>
         </div>
     </div>
 
+    <!-- نافذة الشراء المباشر (مع اللون والمقاس) -->
     <div class="modal-overlay" id="singleOrderModal">
         <div class="modal-content">
             <i class="fas fa-times close-modal-icon" onclick="document.getElementById('singleOrderModal').style.display='none'"></i>
@@ -294,6 +311,19 @@
                 <p id="singleProductName">اسم المنتج</p>
             </div>
             <form onsubmit="submitSingleOrder(event)">
+                
+                <!-- خيارات المنتج -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="size">المقاس</label>
+                        <input type="text" id="s_size" class="form-input" placeholder="مثلاً: 42, L, XL">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="color">اللون</label>
+                        <input type="text" id="s_color" class="form-input" placeholder="مثلاً: أحمر, أسود">
+                    </div>
+                </div>
+
                 <div class="form-group"><label class="form-label" data-i18n="full_name">الاسم الكامل</label><input type="text" id="s_name" class="form-input" required></div>
                 <div class="form-group"><label class="form-label" data-i18n="phone">رقم الهاتف</label><input type="tel" id="s_phone" class="form-input" required></div>
                 <div class="form-group"><label class="form-label" data-i18n="city">المدينة</label><input type="text" id="s_city" class="form-input" required></div>
@@ -317,9 +347,11 @@
                 full_name: "الاسم الكامل", phone: "رقم الهاتف", city: "المدينة", address: "العنوان بالتفصيل",
                 confirm_whatsapp: "تأكيد الطلب عبر واتساب", language: "اللغة / Language",
                 quick_buy: "شراء سريع", send_order: "إرسال الطلب الآن",
+                size: "المقاس (اختياري)", color: "اللون (اختياري)", notes: "ملاحظات إضافية",
                 msg_hello: "مرحباً", msg_order_cart: "طلب جديد (سلة المشتريات)", msg_order_single: "طلب جديد (شراء سريع)",
                 msg_products: "المنتجات المطلوبة", msg_total: "المجموع الكلي", msg_customer: "معلومات الزبون",
-                msg_name: "الاسم", msg_phone: "الهاتف", msg_city: "المدينة", msg_address: "العنوان", msg_confirm: "يرجى تأكيد الطلب"
+                msg_name: "الاسم", msg_phone: "الهاتف", msg_city: "المدينة", msg_address: "العنوان", msg_confirm: "يرجى تأكيد الطلب",
+                msg_size: "المقاس", msg_color: "اللون", msg_notes: "ملاحظات"
             },
             en: {
                 home: "Home", products: "Products", cart: "Cart", contact: "Contact Us", whatsapp: "WhatsApp",
@@ -330,20 +362,24 @@
                 full_name: "Full Name", phone: "Phone Number", city: "City", address: "Detailed Address",
                 confirm_whatsapp: "Confirm via WhatsApp", language: "Language",
                 quick_buy: "Quick Buy", send_order: "Order Now",
+                size: "Size (Optional)", color: "Color (Optional)", notes: "Additional Notes",
                 msg_hello: "Hello", msg_order_cart: "New Order (Cart)", msg_order_single: "New Order (Quick Buy)",
                 msg_products: "Ordered Products", msg_total: "Total Amount", msg_customer: "Customer Info",
-                msg_name: "Name", msg_phone: "Phone", msg_city: "City", msg_address: "Address", msg_confirm: "Please confirm order"
+                msg_name: "Name", msg_phone: "Phone", msg_city: "City", msg_address: "Address", msg_confirm: "Please confirm order",
+                msg_size: "Size", msg_color: "Color", msg_notes: "Notes"
             }
         };
 
-        // متغير عالمي لتخزين الصور
         const productImages = {};
+        let currentZoomProductIdx = 0;
+        let currentZoomImgIdx = 0;
 
         let currentLang = localStorage.getItem('lang');
         if (!currentLang) {
             document.getElementById('langSplash').style.display = 'flex';
         } else {
             applyLanguage(currentLang);
+            fetchProducts();
         }
 
         function selectLanguage(lang) {
@@ -353,6 +389,7 @@
             const splash = document.getElementById('langSplash');
             splash.style.opacity = '0';
             setTimeout(() => { splash.style.display = 'none'; }, 500);
+            fetchProducts();
         }
 
         function applyLanguage(lang) {
@@ -373,6 +410,40 @@
             overlay.classList.toggle('active');
         }
 
+        // --- منطق تكبير الصور (Lightbox with Navigation) ---
+        function openZoom(productIdx, imgIdx) {
+            currentZoomProductIdx = productIdx;
+            currentZoomImgIdx = imgIdx;
+            updateZoomImage();
+            document.getElementById('zoomModal').style.display = 'flex';
+        }
+
+        function closeZoom() {
+            document.getElementById('zoomModal').style.display = 'none';
+        }
+
+        function navigateZoom(direction) {
+            // إيقاف انتشار الحدث لكي لا تغلق النافذة
+            event.stopPropagation();
+            
+            const images = productImages[currentZoomProductIdx];
+            if (!images || images.length <= 1) return;
+
+            currentZoomImgIdx += direction;
+            if (currentZoomImgIdx >= images.length) currentZoomImgIdx = 0;
+            if (currentZoomImgIdx < 0) currentZoomImgIdx = images.length - 1;
+            
+            updateZoomImage();
+        }
+
+        function updateZoomImage() {
+            const images = productImages[currentZoomProductIdx];
+            if (images && images[currentZoomImgIdx]) {
+                document.getElementById('zoomedImage').src = images[currentZoomImgIdx];
+            }
+        }
+
+        // --- جلب المنتجات ---
         async function fetchProducts() {
             try {
                 const sheetId = "1RmpZOJkkQTvYLPXNUxBxHkuNcqoiFn1z5Y0ZbQyx3vk"; 
@@ -395,19 +466,15 @@
 
                     if(title === "title" || price === "price") return;
                     
-                    // معالجة الصور المتعددة
                     if(!imgStr) imgStr = "https://via.placeholder.com/150";
                     const images = imgStr.split(',').map(i => i.trim());
-                    productImages[index] = images; // تخزين الصور
+                    productImages[index] = images;
 
                     const safeTitle = title.replace(/'/g, "\\'"); 
-                    // نرسل الصورة الأولى للسلة
                     const safeImg = images[0];
-                    
                     const buyBtnText = translations[currentLang].buy_now;
                     const currency = translations[currentLang].currency;
 
-                    // إنشاء عناصر التحكم بالصور (الأسهم)
                     let imgControls = '';
                     if (images.length > 1) {
                         imgControls = `
@@ -416,15 +483,14 @@
                         `;
                     }
 
+                    // تحديث حدث النقر للصورة لفتح التكبير
                     const html = `
                         <div class="product-card">
                             ${disc ? `<div class="discount-tag">${disc}</div>` : ''}
-                            
                             <div class="product-img-container">
                                 ${imgControls}
-                                <img src="${images[0]}" class="product-img" id="img-${index}" data-idx="0" onerror="this.src='https://via.placeholder.com/150'">
+                                <img src="${images[0]}" class="product-img" id="img-${index}" data-idx="0" onclick="openZoom(${index}, 0)" onerror="this.src='https://via.placeholder.com/150'">
                             </div>
-
                             <div class="product-title">${title}</div>
                             <div class="price-box">
                                 <span class="curr-price">${price} ${currency}</span>
@@ -443,22 +509,20 @@
             }
         }
 
-        // دالة تغيير الصورة
         function changeImage(productIndex, direction) {
             const imgElement = document.getElementById(`img-${productIndex}`);
             let currentImgIdx = parseInt(imgElement.getAttribute('data-idx'));
             const images = productImages[productIndex];
-            
-            // حساب الصورة التالية
             let newIdx = currentImgIdx + direction;
-            
-            // تدوير الصور (إذا وصل للنهاية يرجع للأول والعكس)
             if (newIdx >= images.length) newIdx = 0;
             if (newIdx < 0) newIdx = images.length - 1;
             
-            // تحديث الصورة
+            // تحديث الصورة المصغرة
             imgElement.src = images[newIdx];
             imgElement.setAttribute('data-idx', newIdx);
+            
+            // تحديث وظيفة النقر لفتح الصورة الصحيحة في الزووم
+            imgElement.onclick = function() { openZoom(productIndex, newIdx); };
         }
 
         let cart = JSON.parse(localStorage.getItem('myCart')) || [];
@@ -542,6 +606,8 @@
             const phone = document.getElementById('c_phone').value;
             const city = document.getElementById('c_city').value;
             const address = document.getElementById('c_address').value;
+            const notes = document.getElementById('c_notes').value;
+
             let total = 0;
             let productsText = "";
             cart.forEach((item) => {
@@ -550,6 +616,10 @@
                 total += p;
                 productsText += `▫️ ${item.title}  [${item.price} ${t.currency}]%0a`;
             });
+            
+            // إضافة الملاحظات للرسالة
+            let notesText = notes ? `📝 *${t.msg_notes}:* ${notes}%0a` : "";
+
             const msg = `👋 *${t.msg_hello}, ${t.msg_order_cart}* %0a%0a` +
                         `🛒 *${t.msg_products}:*%0a` +
                         `ــــــــــــــــــــــــــــــــــــــــــــ%0a` +
@@ -562,6 +632,7 @@
                         `▪️ *${t.msg_phone}:* ${phone}%0a` +
                         `▪️ *${t.msg_city}:* ${city}%0a` +
                         `▪️ *${t.msg_address}:* ${address}%0a` +
+                        `${notesText}` +
                         `ــــــــــــــــــــــــــــــــــــــــــــ%0a` +
                         `🚚 ${t.msg_confirm}.`;
             window.open(`https://wa.me/${MY_PHONE}?text=${msg}`, '_blank');
@@ -584,8 +655,16 @@
             const phone = document.getElementById('s_phone').value;
             const city = document.getElementById('s_city').value;
             const address = document.getElementById('s_address').value;
+            const size = document.getElementById('s_size').value;
+            const color = document.getElementById('s_color').value;
+            
+            let variants = "";
+            if(size) variants += `📏 *${t.msg_size}:* ${size}%0a`;
+            if(color) variants += `🎨 *${t.msg_color}:* ${color}%0a`;
+
             const msg = `👋 *${t.msg_hello}, ${t.msg_order_single}* %0a%0a` +
                         `📦 *${t.products}:* ${currentProduct}%0a` +
+                        `${variants}` +
                         `ــــــــــــــــــــــــــــــــــــــــــــ%0a` +
                         `👤 *${t.msg_customer}:*%0a` +
                         `▪️ *${t.msg_name}:* ${name}%0a` +
@@ -598,7 +677,6 @@
             document.getElementById('singleOrderModal').style.display = 'none';
         }
 
-        if(currentLang) { fetchProducts(); }
         updateCartBadge();
     </script>
 </body>
