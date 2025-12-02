@@ -30,20 +30,18 @@
     <style>
         /* --- الألوان الاحترافية (Dark Premium Theme) --- */
         :root { 
-            --primary-color: #3b82f6; /* أزرق مريح للعين في الظلام */
-            --danger-color: #ef4444;  /* أحمر ناعم */
-            --success-color: #10b981; /* أخضر ناعم */
+            --primary-color: #3b82f6;
+            --danger-color: #ef4444;
+            --success-color: #10b981;
             
-            /* ألوان الخلفيات الداكنة */
-            --bg-color: #000000;      /* خلفية الصفحة سوداء */
-            --card-bg: #1c1c1e;       /* لون البطاقات والهيدر (رمادي غامق جداً) */
-            --input-bg: #2c2c2e;      /* لون حقول الكتابة */
+            --bg-color: #000000;
+            --card-bg: #1c1c1e;
+            --input-bg: #2c2c2e;
             
-            /* ألوان النصوص */
-            --text-main: #ffffff;     /* النص الأساسي أبيض */
-            --text-sub: #a1a1aa;      /* النص الثانوي رمادي فاتح */
+            --text-main: #ffffff;
+            --text-sub: #a1a1aa;
             
-            --border-color: #333333;  /* لون الحدود */
+            --border-color: #333333;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; outline: none; -webkit-tap-highlight-color: transparent; }
@@ -145,10 +143,10 @@
             border-radius: 16px; padding: 12px; position: relative; 
             display: flex; flex-direction: column; justify-content: space-between; 
             transition: transform 0.2s; 
-            border: 1px solid var(--border-color); /* حدود خفيفة */
+            border: 1px solid var(--border-color); 
         }
         
-        .product-img-container { position: relative; width: 100%; aspect-ratio: 1/1; margin-bottom: 12px; border-radius: 12px; overflow: hidden; background: #fff; /* خلفية بيضاء للصورة فقط لكي تبرز */ }
+        .product-img-container { position: relative; width: 100%; aspect-ratio: 1/1; margin-bottom: 12px; border-radius: 12px; overflow: hidden; background: #fff; }
         .product-img { width: 100%; height: 100%; object-fit: contain; transition: opacity 0.3s; cursor: zoom-in; }
         
         .img-nav-btn {
@@ -187,7 +185,7 @@
         .nav-item i { font-size: 18px; }
         .nav-item.active { color: var(--primary-color); font-weight: bold; }
         
-        .whatsapp-float { position: fixed; bottom: 90px; left: 20px; background: #25d366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 1400; transition: transform 0.2s; }
+        .whatsapp-float { position: fixed; bottom: 90px; left: 20px; background: #25d366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 1400; transition: transform 0.2s; cursor: pointer; }
         body[dir="ltr"] .whatsapp-float { left: auto; right: 20px; }
 
         /* --- النوافذ المنبثقة --- */
@@ -255,6 +253,18 @@
             .mobile-bottom-nav { display: flex; } 
             .nav-links-desktop { display: none; }
         }
+
+        /* --- تحسين العرض على الحاسوب والتلفاز --- */
+        @media (min-width: 769px) {
+            .products-grid {
+                /* جعل البطاقات أكبر واستغلال العرض الكامل */
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
+                max-width: 95%; 
+            }
+            .header-container {
+                max-width: 95%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -286,7 +296,8 @@
             <a href="#" onclick="toggleSidebar()"><i class="fas fa-home"></i> <span data-i18n="home">الرئيسية</span></a>
             <a href="#products" onclick="toggleSidebar()"><i class="fas fa-th-large"></i> <span data-i18n="products">المنتجات</span></a>
             <a href="#" onclick="openCart(); toggleSidebar()"><i class="fas fa-shopping-cart"></i> <span data-i18n="cart">سلة المشتريات</span></a>
-            <a href="https://wa.me/212695050162" onclick="toggleSidebar()"><i class="fab fa-whatsapp"></i> <span data-i18n="contact">اتصل بنا</span></a>
+            <!-- إضافة حدث تتبع الاتصال هنا -->
+            <a href="https://wa.me/212695050162" onclick="fbq('track', 'Contact'); toggleSidebar()"><i class="fab fa-whatsapp"></i> <span data-i18n="contact">اتصل بنا</span></a>
             <div class="lang-divider" data-i18n="language">اللغة / Language</div>
             <div class="lang-option" onclick="selectLanguage('ar'); toggleSidebar()"><img src="https://flagcdn.com/w20/ma.png"> العربية</div>
             <div class="lang-option" onclick="selectLanguage('en'); toggleSidebar()"><img src="https://flagcdn.com/w20/us.png"> English</div>
@@ -324,10 +335,11 @@
     <div class="mobile-bottom-nav">
         <div class="nav-item active" onclick="window.scrollTo(0,0)"><i class="fas fa-home"></i> <span data-i18n="home">الرئيسية</span></div>
         <div class="nav-item" onclick="openCart()"><i class="fas fa-shopping-cart"></i> <span data-i18n="cart">السلة</span> <span style="font-size:10px; color:var(--danger-color); font-weight:bold" id="bottomCartCount">(0)</span></div>
-        <div class="nav-item" onclick="window.location.href='https://wa.me/212695050162'"><i class="fab fa-whatsapp"></i> <span data-i18n="whatsapp">واتساب</span></div>
+        <div class="nav-item" onclick="fbq('track', 'Contact'); window.location.href='https://wa.me/212695050162'"><i class="fab fa-whatsapp"></i> <span data-i18n="whatsapp">واتساب</span></div>
     </div>
 
-    <a href="https://wa.me/212695050162" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+    <!-- إضافة حدث تتبع الاتصال للزر العائم -->
+    <a href="https://wa.me/212695050162" onclick="fbq('track', 'Contact')" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
     <!-- نافذة السلة -->
     <div class="modal-overlay" id="cartModal">
@@ -477,6 +489,9 @@
             currentZoomImgIdx = imgIdx;
             updateZoomImage();
             document.getElementById('zoomModal').style.display = 'flex';
+            
+            // --- PIXEL: ViewContent ---
+            if(typeof fbq !== 'undefined') fbq('track', 'ViewContent');
         }
 
         function closeZoom() {
@@ -581,6 +596,16 @@
         function addToCart(title, price, img) {
             cart.push({ title: title, price: price, img: img });
             saveCart();
+
+            // --- PIXEL: AddToCart ---
+            if(typeof fbq !== 'undefined') {
+                fbq('track', 'AddToCart', {
+                    content_name: title,
+                    value: price,
+                    currency: 'MAD'
+                });
+            }
+            
             const btn = event.currentTarget;
             const originalHTML = btn.innerHTML;
             btn.innerHTML = '<i class="fas fa-check"></i>';
@@ -648,6 +673,9 @@
             if(cart.length === 0) return alert(translations[currentLang].empty_cart);
             document.getElementById('cartModal').style.display = 'none';
             document.getElementById('cartOrderModal').style.display = 'flex';
+            
+            // --- PIXEL: InitiateCheckout ---
+            if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
         }
 
         function submitCartOrder(e) {
@@ -682,6 +710,16 @@
                         `${notesText}` +
                         `ــــــــــــــــــــــــــــــــــــــــــــ%0a` +
                         `🚚 ${t.msg_confirm}.`;
+            
+            // --- PIXEL: Purchase (Cart) ---
+            if(typeof fbq !== 'undefined') {
+                fbq('track', 'Purchase', {
+                    value: total,
+                    currency: 'MAD',
+                    num_items: cart.length
+                });
+            }
+
             window.open(`https://wa.me/${MY_PHONE}?text=${msg}`, '_blank');
             document.getElementById('cartOrderModal').style.display = 'none';
             cart = [];
@@ -693,6 +731,9 @@
             currentProduct = title;
             document.getElementById('singleProductName').innerText = title;
             document.getElementById('singleOrderModal').style.display = 'flex';
+            
+            // --- PIXEL: InitiateCheckout ---
+            if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
         }
 
         function submitSingleOrder(e) {
@@ -718,6 +759,15 @@
                         `▪️ *${t.msg_address}:* ${address}%0a` +
                         `ــــــــــــــــــــــــــــــــــــــــــــ%0a` +
                         `🚚 ${t.msg_confirm}.`;
+
+            // --- PIXEL: Purchase (Single) ---
+            if(typeof fbq !== 'undefined') {
+                fbq('track', 'Purchase', {
+                    content_name: currentProduct,
+                    currency: 'MAD'
+                });
+            }
+
             window.open(`https://wa.me/${MY_PHONE}?text=${msg}`, '_blank');
             document.getElementById('singleOrderModal').style.display = 'none';
         }
@@ -726,4 +776,3 @@
     </script>
 </body>
 </html>
-
