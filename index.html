@@ -567,7 +567,8 @@
                                 ${old ? `<span class="old-price">${old}</span>` : ''}
                             </div>
                             <div class="actions-btn">
-                                <button class="buy-now-btn" onclick="openSingleOrder('${safeTitle}')">${buyBtnText}</button>
+                                <!-- Pass price to openSingleOrder for accurate pixel tracking -->
+                                <button class="buy-now-btn" onclick="openSingleOrder('${safeTitle}', '${price}')">${buyBtnText}</button>
                                 <button class="add-cart-btn" onclick="addToCart('${safeTitle}', '${price}', '${safeImg}')"><i class="fas fa-cart-plus"></i></button>
                             </div>
                         </div>
@@ -712,6 +713,7 @@
                         `🚚 ${t.msg_confirm}.`;
             
             // --- PIXEL: Purchase (Cart) ---
+            // Updated with dynamic value
             if(typeof fbq !== 'undefined') {
                 fbq('track', 'Purchase', {
                     value: total,
@@ -727,8 +729,11 @@
         }
 
         let currentProduct = "";
-        function openSingleOrder(title) {
+        let currentSinglePrice = 0; // Variable to store price for pixel
+
+        function openSingleOrder(title, price) {
             currentProduct = title;
+            currentSinglePrice = price; // Store price
             document.getElementById('singleProductName').innerText = title;
             document.getElementById('singleOrderModal').style.display = 'flex';
             
@@ -761,9 +766,11 @@
                         `🚚 ${t.msg_confirm}.`;
 
             // --- PIXEL: Purchase (Single) ---
+            // Updated with dynamic value from button click
             if(typeof fbq !== 'undefined') {
                 fbq('track', 'Purchase', {
                     content_name: currentProduct,
+                    value: parseFloat(currentSinglePrice) || 0,
                     currency: 'MAD'
                 });
             }
