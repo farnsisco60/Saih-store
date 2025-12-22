@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- 🚀 9️⃣ SEO بسيط -->
-    <title>Saih Store – منتجات كأس إفريقيا 2025 | توصيل سريع</title>
-    <meta name="description" content="اشترِ منتجات عصرية بجودة عالية مع توصيل سريع لجميع المدن والدفع عند الاستلام.">
+    <!-- 🚀 SEO -->
+    <title>Saih Store – Tamghrabit 2025 | توصيل سريع</title>
+    <meta name="description" content="اشترِ حذاء Tamghrabit العصري بجودة عالية مع توصيل مجاني لجميع المدن المغربية والدفع عند الاستلام.">
 
-    <!-- Meta Pixel Code (بلا تغيير) -->
+    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -24,9 +24,8 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1910150606256826&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
 
-    <!-- TikTok Pixel Code (بلا تغيير) -->
+    <!-- TikTok Pixel Code -->
     <script>
     !function (w, d, t) {
       w.Tawk_Alphabet = t;
@@ -47,72 +46,60 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Cairo', sans-serif; background-color: var(--bg-color); color: var(--text-main); direction: rtl; text-align: right; overflow-x: hidden; }
 
-        /* 📢 4️⃣ شريط متحرك */
-        .announcement-bar { background: var(--danger-color); color: white; padding: 8px 0; overflow: hidden; position: relative; font-size: 13px; font-weight: bold; border-bottom: 2px solid var(--primary-color); }
+        .announcement-bar { background: var(--danger-color); color: white; padding: 8px 0; overflow: hidden; font-size: 13px; font-weight: bold; border-bottom: 2px solid var(--primary-color); }
         .moving-text { display: inline-block; white-space: nowrap; animation: move-text 20s linear infinite; }
         @keyframes move-text { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
 
-        /* Header */
         header { background: var(--bg-color); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 2000; height: 65px; display: flex; align-items: center; }
         .header-container { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
         .logo img { height: 40px; }
 
-        /* Hero */
-        .hero { padding: 40px 15px; text-align: center; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://i.postimg.cc/VvFWP3Vq/1764285865239.png'); background-size: cover; border-bottom: 3px solid var(--primary-color); }
+        .hero { padding: 40px 15px; text-align: center; border-bottom: 3px solid var(--primary-color); }
         .hero h1 { font-size: 24px; color: var(--primary-color); margin-bottom: 10px; }
-        .hero p { font-size: 15px; color: #ccc; margin-bottom: 20px; }
         
-        /* 📈 5️⃣ Social Proof */
-        .social-proof-top { font-size: 12px; color: var(--danger-color); font-weight: bold; margin-bottom: 20px; }
+        /* 🎥 القسم الجديد الخاص بالفيديو من الصورة */
+        .video-wrapper { 
+            max-width: 400px; 
+            margin: 20px auto; 
+            border: 3px solid var(--primary-color); 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4); 
+            position: relative;
+        }
+        .video-wrapper video { width: 100%; display: block; border-radius: 17px; }
+        .video-overlay-text { position: absolute; top: 15px; width: 100%; text-align: center; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
 
-        /* 🎥 10️⃣ فيديو قصير */
-        .video-container { max-width: 350px; margin: 0 auto 30px; border: 2px solid var(--primary-color); border-radius: 15px; overflow: hidden; }
-        .video-container video { width: 100%; display: block; }
-
-        /* Products Grid */
         .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding: 40px 15px; max-width: 1200px; margin: 0 auto; }
-        .product-card { background: var(--card-bg); border-radius: 15px; padding: 15px; border: 1px solid var(--border-color); position: relative; }
+        .product-card { background: var(--card-bg); border-radius: 15px; padding: 20px; border: 1px solid var(--border-color); position: relative; }
         .p-img-box { width: 100%; aspect-ratio: 1; background: #fff; border-radius: 10px; overflow: hidden; margin-bottom: 15px; }
         .p-img-box img { width: 100%; height: 100%; object-fit: contain; }
         
-        .realtime-stats { font-size: 11px; color: #00ff00; margin-bottom: 10px; }
+        .price-tag { font-size: 26px; font-weight: 900; color: #fff; margin: 10px 0; }
+        .price-tag span { color: var(--primary-color); font-size: 14px; text-decoration: line-through; margin-right: 10px; opacity: 0.7; }
 
-        /* 🧠 2️⃣ إزالة الشك */
-        .objection-text { font-size: 12px; color: #aaa; text-align: center; margin: 10px 0; }
-
-        /* Forms */
-        .order-form input { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #333; background: #222; color: white; font-family: inherit; }
-        .submit-order { width: 100%; padding: 16px; background: var(--success-color); color: white; border: none; border-radius: 10px; font-weight: 900; font-size: 18px; cursor: pointer; transition: 0.3s; }
-        .submit-order:hover { transform: scale(1.02); }
-
-        /* FAQ & Policies */
-        .info-section { padding: 40px 15px; max-width: 800px; margin: 0 auto; }
-        .info-section h2 { color: var(--primary-color); text-align: center; margin-bottom: 20px; font-size: 20px; }
-        .faq-item { background: #111; padding: 15px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #222; }
-        .faq-q { font-weight: bold; color: var(--primary-color); margin-bottom: 5px; }
+        .order-form input { width: 100%; padding: 14px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #333; background: #222; color: white; font-family: inherit; }
+        .submit-order { width: 100%; padding: 18px; background: var(--success-color); color: white; border: none; border-radius: 10px; font-weight: 900; font-size: 20px; cursor: pointer; transition: 0.3s; animation: pulse 2s infinite; }
         
-        /* 📜 3️⃣ سياسة التوصيل */
-        .policy-box { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: center; }
-        .p-card { background: #0a0a0a; padding: 15px; border-radius: 10px; border: 1px solid var(--primary-color); }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
 
-        /* 📲 7️⃣ Pop-up */
+        .info-section { padding: 40px 15px; max-width: 800px; margin: 0 auto; }
+        .faq-item { background: #111; padding: 15px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #222; }
+        .faq-q { font-weight: bold; color: var(--primary-color); }
+
         .popup-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 5000; justify-content: center; align-items: center; }
         .popup-content { background: #111; padding: 30px; border-radius: 20px; border: 2px solid var(--primary-color); text-align: center; max-width: 300px; }
 
-        /* 🏁 9️⃣ Footer */
         footer { padding: 40px 15px; text-align: center; background: #000; border-top: 1px solid #222; padding-bottom: 100px; }
         .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: #000; display: flex; justify-content: space-around; padding: 12px 0; border-top: 2px solid var(--primary-color); z-index: 1000; }
-        .nav-item { color: white; font-size: 11px; text-align: center; }
-
-        @media (max-width: 768px) { .products-grid { grid-template-columns: 1fr; } .policy-box { grid-template-columns: 1fr; } }
+        .whatsapp-float { position: fixed; bottom: 100px; left: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 5px 20px rgba(0,0,0,0.5); z-index: 1500; }
     </style>
 </head>
 <body>
 
-    <!-- 📢 4️⃣ شريط متحرك -->
     <div class="announcement-bar">
         <div class="moving-text">
-            🚚 توصيل سريع لجميع المدن | 💰 الأداء عند الاستلام | 🔥 عرض محدود لليوم فقط | 🏆 استعد لكأس إفريقيا 2025
+            🚚 توصيل مجاني لجميع المدن المغربية | 💰 الأداء عند الاستلام | 🔥 عرض محدود لليوم فقط بـ 249 درهم | 🇲🇦 جودة مغربية أصيلة
         </div>
     </div>
 
@@ -123,76 +110,50 @@
         </div>
     </header>
 
-    <!-- 📲 7️⃣ Pop-up ذكي -->
     <div class="popup-overlay" id="smartPopup">
         <div class="popup-content">
-            <h2 style="color:var(--primary-color); margin-bottom:10px;">🎉 مرحباً بك!</h2>
-            <p style="margin-bottom:20px;">استفد من تخفيض خاص وتوصيل سريع اليوم فقط!</p>
+            <h2 style="color:var(--primary-color); margin-bottom:10px;">🎉 عرض خاص!</h2>
+            <p style="margin-bottom:20px;">احصل على توصيل مجاني لباب منزلك اليوم فقط!</p>
             <button onclick="closePopup()" style="width:100%; padding:12px; background:var(--success-color); color:white; border:none; border-radius:10px; font-weight:bold;">استفد من العرض</button>
         </div>
     </div>
 
-    <!-- Hero -->
     <section class="hero">
-        <h1>🇲🇦 استعد لكأس إفريقيا 2025 مع Saih Store</h1>
-        <p>منتج عصري بجودة عالية، مريح للاستعمال اليومي والتشجيع</p>
+        <h1>🇲🇦 استعد لكأس إفريقيا 2025 مع Tamghrabit</h1>
         
-        <!-- 📈 5️⃣ Social Proof -->
-        <div class="social-proof-top">🔥 أكثر من 50 طلب هذا الأسبوع</div>
-
-        <!-- 🎥 10️⃣ فيديو قصير -->
-        <div class="video-container">
-            <video autoplay muted loop playsinline>
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"> <!-- ضع رابط الفيديو هنا -->
+        <!-- 🎥 هيكل الفيديو الجديد -->
+        <div class="video-wrapper">
+            <div class="video-overlay-text">الثمن <b>249 درهم</b> والتوصيل مجانا</div>
+            <video id="mainVideo" autoplay muted loop playsinline>
+                <source src="رابط_فيديو_حذاء_تمغربيت_هنا.mp4" type="video/mp4">
             </video>
         </div>
         
-        <a href="#products-area" style="text-decoration:none;" class="submit-order">🎯 استفد من العرض</a>
+        <p style="margin-top:15px; color:#ddd;">منتج عصري بجودة عالية، مريح للاستعمال اليومي والتشجيع</p>
+        <div style="font-size:12px; color:var(--danger-color); font-weight:bold; margin-bottom: 20px;">🔥 أكثر من 50 طلب هذا الأسبوع</div>
+        
+        <a href="#products-area" style="text-decoration:none;" class="submit-order">اطلب من الموقع ⬇️</a>
     </section>
-
-    <!-- 🧠 2️⃣ إزالة الشك -->
-    <div class="objection-text">ما تحتاجش بطاقة بنكية، الطلب سهل وآمن، والأداء عند الاستلام.</div>
 
     <div id="products-area" class="products-grid">
-        <p style="text-align:center; width:100%;">جاري تحميل أفضل العروض...</p>
+        <p style="text-align:center; width:100%;">جاري تحميل العرض المتاح...</p>
     </div>
 
-    <!-- ❓ 1️⃣ أسئلة وأجوبة -->
     <section class="info-section">
-        <h2>❓ الأسئلة الشائعة (FAQ)</h2>
+        <h2 style="color:var(--primary-color); text-align:center; margin-bottom:20px;">❓ الأسئلة الشائعة</h2>
+        <div class="faq-item">
+            <div class="faq-q">واش التوصيل مجاني؟</div>
+            <div class="faq-a">نعم، التوصيل مجاني ومجاني لجميع المدن المغربية لباب الدار.</div>
+        </div>
         <div class="faq-item">
             <div class="faq-q">واش كاين الأداء عند الاستلام؟</div>
-            <div class="faq-a">نعم، الأداء يتم عند استلام الطلب يداً بيد.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q">شحال كتاخذ مدة التوصيل؟</div>
-            <div class="faq-a">بين 24 و48 ساعة حسب المدينة المغربية.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q">واش نقدر نبدّل المنتج؟</div>
-            <div class="faq-a">نعم، في حالة وجود أي عيب أو مشكل في المنتج.</div>
+            <div class="faq-a">نعم، الأداء يتم فقط عند استلام الحذاء والتأكد منه.</div>
         </div>
     </section>
 
-    <!-- 📦 3️⃣ سياسة التوصيل والاسترجاع -->
-    <section class="info-section">
-        <h2>📦 سياسة المتجر</h2>
-        <div class="policy-box">
-            <div class="p-card">
-                <b style="color:var(--primary-color)">سياسة التوصيل</b><br>
-                نوصلو لجميع المدن المغربية في مدة 24–48 ساعة فقط.
-            </div>
-            <div class="p-card">
-                <b style="color:var(--primary-color)">سياسة الاسترجاع</b><br>
-                يمكن الاستبدال مجاناً في حالة وجود عيب في المنتج.
-            </div>
-        </div>
-    </section>
-
-    <!-- 🏁 9️⃣ Footer -->
     <footer>
         <p>© 2025 Saih Store</p>
-        <p style="font-size:12px; color:#666;">متجر مغربي | توصيل لجميع المدن | الأداء عند الاستلام</p>
+        <p style="font-size:12px; color:#666;">متجر مغربي | توصيل مجاني | الأداء عند الاستلام</p>
     </footer>
 
     <div class="bottom-nav">
@@ -200,25 +161,19 @@
         <div onclick="window.location.href='https://wa.me/212695050162'" class="nav-item"><i class="fab fa-whatsapp"></i><br>واتساب</div>
     </div>
 
-    <!-- 📲 7️⃣ زر واتساب واضح -->
-    <a href="https://wa.me/212695050162?text=السلام عليكم، بغيت نطلب منتج من Saih Store. المدينة: . طريقة الأداء: عند الاستلام" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/212695050162?text=السلام عليكم، بغيت نطلب حذاء تمغربيت بـ 249 درهم" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
     <script>
         const SHEET_ID = "1RmpZOJkkQTvYLPXNUxBxHkuNcqoiFn1z5Y0ZbQyx3vk"; 
         const MY_PHONE = "212695050162"; 
 
-        // 📲 7️⃣ Pop-up Logic
         window.onload = function() {
             if(!sessionStorage.getItem('popShown')) {
-                setTimeout(() => {
-                    document.getElementById('smartPopup').style.display = 'flex';
-                    sessionStorage.setItem('popShown', 'true');
-                }, 3000);
+                setTimeout(() => { document.getElementById('smartPopup').style.display = 'flex'; sessionStorage.setItem('popShown', 'true'); }, 3000);
             }
         };
         function closePopup() { document.getElementById('smartPopup').style.display = 'none'; }
 
-        // Fetch Products (بلا تغيير في اللوجيك)
         async function fetchProducts() {
             try {
                 const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
@@ -230,20 +185,17 @@
 
                 json.table.rows.forEach((row, index) => {
                     const title = row.c[0]?.v || "";
-                    const price = row.c[1]?.v || "";
+                    const price = "249"; // الثمن من الصورة
+                    const oldPrice = "399";
                     const imgUrl = row.c[4]?.v || "";
                     if(!title) return;
 
-                    const watching = Math.floor(Math.random() * 15) + 5;
-
                     container.innerHTML += `
                         <div class="product-card">
-                            <!-- 📈 5️⃣ Social Proof -->
-                            <div class="realtime-stats">👀 هذا المنتج يشاهده الآن ${watching} شخصاً</div>
-                            
+                            <div style="font-size:11px; color:#00ff00; margin-bottom:10px;">👀 يشاهده الآن 12 شخصاً</div>
                             <div class="p-img-box"><img src="${imgUrl.split(',')[0]}"></div>
-                            <h3 style="color:var(--primary-color); font-size:18px;">${title}</h3>
-                            <div style="font-size:22px; font-weight:900; margin:10px 0;">${price} درهم</div>
+                            <h3 style="color:var(--primary-color);">${title}</h3>
+                            <div class="price-tag">${price} درهم <span>${oldPrice} درهم</span></div>
                             
                             <div class="order-form">
                                 <input type="text" placeholder="الاسم الكامل" id="n-${index}">
@@ -251,10 +203,7 @@
                                 <input type="text" placeholder="المدينة" id="a-${index}">
                             </div>
 
-                            <!-- 🎯 6️⃣ Call To Action إضافية -->
-                            <button class="submit-order" onclick="sendOrder(${index}, '${title.replace(/'/g, "")}', '${price}')">✔️ أكد الطلب قبل نفاذ الكمية</button>
-                            
-                            <p style="font-size:10px; text-align:center; margin-top:10px; color:#666;">⏳ العرض محدود – الكمية قليلة</p>
+                            <button class="submit-order" onclick="sendOrder(${index}, '${title.replace(/'/g, "")}', '${price}')">✔️ أكد الطلب دابا</button>
                         </div>
                     `;
                 });
@@ -265,17 +214,13 @@
             const name = document.getElementById(`n-${idx}`).value;
             const phone = document.getElementById(`p-${idx}`).value;
             const city = document.getElementById(`a-${idx}`).value;
+            if(!name || !phone || !city) { alert("يرجى ملء المعلومات"); return; }
 
-            if(!name || !phone || !city) { alert("يرجى ملء الاسم والهاتف والمدينة"); return; }
+            if(typeof fbq !== 'undefined') fbq('track', 'Purchase', { value: 249, currency: 'MAD' });
+            if(typeof ttq !== 'undefined') ttq.track('CompletePayment', { value: 249, currency: 'MAD' });
 
-            // Pixel Tracking (بلا تغيير)
-            if(typeof fbq !== 'undefined') fbq('track', 'Purchase', { value: parseFloat(price), currency: 'MAD' });
-            if(typeof ttq !== 'undefined') ttq.track('CompletePayment', { value: parseFloat(price), currency: 'MAD' });
-
-            // 🏁 8️⃣ تأكيد بعد الطلب
-            alert("✅ تم استلام طلبك بنجاح! سيتم التواصل معك قريباً.");
-
-            const msg = `🇲🇦 *طلب جديد - Saih Store*%0a%0a📦 *المنتج:* ${title}%0a💰 *الثمن:* ${price} درهم%0a👤 *الاسم:* ${name}%0a📞 *الهاتف:* ${phone}%0a📍 *المدينة:* ${city}%0aــــــــــــــــــــــــــــــــــــــــــــ%0a🚚 الأداء عند الاستلام`;
+            alert("✅ تم استلام طلبك بنجاح!");
+            const msg = `🇲🇦 *طلب جديد - Saih Store*%0a%0a📦 *المنتج:* ${title}%0a💰 *الثمن:* ${price} درهم%0a👤 *الاسم:* ${name}%0a📞 *الهاتف:* ${phone}%0a📍 *المدينة:* ${city}%0aــــــــــــــــــــــــــــــــــــــــــــ%0a🚚 توصيل مجاني لباب الدار`;
             window.open(`https://wa.me/${MY_PHONE}?text=${msg}`, '_blank');
         }
 
