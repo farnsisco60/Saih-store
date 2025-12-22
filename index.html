@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- 🚀 SEO & Meta -->
-    <title>Saih Store – Tamghrabit 2025 | جودة ومصداقية</title>
-    <meta name="description" content="اكتشف تشكيلة Tamghrabit 2025 الحصرية. جودة عالية، توصيل سريع، والدفع عند الاستلام.">
+    <!-- 🚀 القسم 9: SEO - تحسين محركات البحث -->
+    <title>Saih Store – منتجات كأس إفريقيا 2025 | توصيل سريع ومجاني</title>
+    <meta name="description" content="اشترِ منتجات عصرية بجودة عالية مع توصيل سريع لجميع المدن المغربية والدفع عند الاستلام. عروض حصرية بمناسبة كأس إفريقيا 2025.">
+    <meta name="keywords" content="متجر مغربي، كأس إفريقيا 2025، حذاء تمغربيت، توصيل سريع، الدفع عند الاستلام">
 
-    <!-- Meta Pixel Code (بلا تغيير) -->
+    <!-- =======================================================
+         META PIXEL CODE (فيسبوك بيكسل)
+         ======================================================= -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -21,152 +24,361 @@
     fbq('init', '1910150606256826');
     fbq('track', 'PageView');
     </script>
-    
-    <!-- TikTok Pixel Code (بلا تغيير) -->
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1910150606256826&ev=PageView&noscript=1"
+    /></noscript>
+
+    <!-- =======================================================
+         TIKTOK PIXEL CODE (تيك توك بيكسل)
+         ======================================================= -->
     <script>
     !function (w, d, t) {
-      w.ttq = w.ttq || []; w.ttq.load('YOUR_TIKTOK_PIXEL_ID'); w.ttq.page();
+      w.ttq = w.ttq || []; w.ttq.load('YOUR_TIKTOK_PIXEL_ID'); // استبدل YOUR_TIKTOK_PIXEL_ID بـ ID الخاص بك
+      w.ttq.page();
     }(window, document, 'ttq');
     </script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- الخطوط والأيقونات -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        /* =======================================================
+           CSS - الألوان والتنسيق الاحترافي (طابع مغربي)
+           ======================================================= */
         :root { 
-            --primary: #d4af37; --danger: #c1272d; --success: #006233; 
-            --bg: #000; --card: #111; --text: #fff; --gray: #aaa;
+            --primary-color: #d4af37; /* ذهبي الكأس */
+            --danger-color: #c1272d;  /* أحمر العلم المغربي */
+            --success-color: #006233; /* أخضر العلم المغربي */
+            --bg-color: #000000;
+            --card-bg: #111111;
+            --input-bg: #1f1f1f;
+            --text-main: #ffffff;
+            --text-sub: #a1a1aa;
+            --border-color: #2a2a2a;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
-        body { background-color: var(--bg); color: var(--text); direction: rtl; line-height: 1.6; }
 
-        /* 📢 شريط التوصيل العلوي */
-        .top-bar { background: var(--danger); color: #fff; text-align: center; padding: 10px; font-size: 13px; font-weight: bold; border-bottom: 2px solid var(--primary); }
+        * { box-sizing: border-box; margin: 0; padding: 0; outline: none; -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-color); color: var(--text-main); direction: rtl; text-align: right; overflow-x: hidden; }
 
-        /* 🏠 Header */
-        header { background: #000; padding: 15px; border-bottom: 1px solid #222; position: sticky; top: 0; z-index: 1000; }
-        .header-flex { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        /* القسم 4: شريط متحرك (Announcement Bar) */
+        .announcement-bar { background: var(--danger-color); color: white; padding: 10px 0; overflow: hidden; position: relative; font-size: 14px; font-weight: bold; border-bottom: 2px solid var(--primary-color); z-index: 1001; }
+        .moving-text { display: inline-block; white-space: nowrap; animation: move-text 25s linear infinite; }
+        @keyframes move-text { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+
+        /* الهيدر */
+        header { background-color: var(--bg-color); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; height: 70px; display: flex; align-items: center; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .logo img { height: 45px; }
+        .cart-icon { font-size: 24px; color: white; position: relative; cursor: pointer; }
+        .badge { position: absolute; top: -10px; right: -10px; background: var(--success-color); color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 12px; border: 2px solid white; }
 
-        /* 🔥 Hero Section */
-        .hero { position: relative; padding: 40px 20px; text-align: center; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://i.postimg.cc/VvFWP3Vq/1764285865239.png'); background-size: cover; background-position: center; border-bottom: 3px solid var(--primary); }
-        .hero h1 { font-size: 28px; font-weight: 900; color: var(--primary); margin-bottom: 15px; }
-        .hero p { font-size: 16px; margin-bottom: 25px; color: #ddd; }
-        .hero-cta { display: inline-block; background: var(--success); color: #fff; padding: 20px 45px; border-radius: 50px; font-size: 22px; font-weight: 900; text-decoration: none; box-shadow: 0 0 20px rgba(0,98,51,0.6); animation: pulse 2s infinite; }
-
+        /* القسم 1: الواجهة الرئيسية (Hero Section) */
+        .hero { padding: 60px 20px; text-align: center; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://i.postimg.cc/VvFWP3Vq/1764285865239.png'); background-size: cover; background-position: center; border-bottom: 3px solid var(--primary-color); }
+        .hero h1 { font-size: 32px; font-weight: 900; color: var(--primary-color); margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero p { font-size: 18px; margin-bottom: 30px; line-height: 1.6; color: #ccc; }
+        .hero-features { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 40px; }
+        .h-feat { background: rgba(255,255,255,0.1); padding: 12px 20px; border-radius: 50px; font-size: 14px; border: 1px solid var(--primary-color); color: white; }
+        .cta-btn { background: var(--success-color); color: white; padding: 20px 50px; border-radius: 50px; font-size: 22px; font-weight: 900; border: none; cursor: pointer; box-shadow: 0 0 20px rgba(0,98,51,0.5); text-decoration: none; display: inline-block; animation: pulse 2s infinite; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
-        /* 🚚 معلومات التوصيل (Icons) */
-        .shipping-info { display: flex; justify-content: space-around; padding: 30px 10px; background: #0a0a0a; border-bottom: 1px solid #222; }
-        .ship-item { text-align: center; font-size: 12px; }
-        .ship-item i { font-size: 28px; color: var(--primary); margin-bottom: 8px; }
+        /* القسم 10: فيديو قصير */
+        .video-box { max-width: 400px; margin: 40px auto; border: 3px solid var(--primary-color); border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(212,175,55,0.3); }
+        .video-box video { width: 100%; display: block; }
 
-        /* 📦 Products Area */
-        .products-container { padding: 40px 15px; max-width: 1200px; margin: 0 auto; }
-        .product-card { background: var(--card); border-radius: 20px; overflow: hidden; border: 1px solid #333; margin-bottom: 40px; }
-        .product-img { width: 100%; aspect-ratio: 1/1; background: #fff; display: block; }
-        .product-img img { width: 100%; height: 100%; object-fit: contain; }
-        
-        .product-details { padding: 25px; }
-        .p-title { font-size: 22px; font-weight: 900; color: var(--primary); margin-bottom: 10px; }
-        .p-price { font-size: 26px; font-weight: 900; color: #fff; margin-bottom: 20px; }
-        .p-price span { text-decoration: line-through; font-size: 16px; color: #666; margin-right: 10px; }
+        /* القسم 2: وصف المنتج */
+        .description-box { padding: 60px 20px; background: #0a0a0a; text-align: center; }
+        .desc-inner { max-width: 900px; margin: 0 auto; background: var(--card-bg); padding: 40px; border-radius: 25px; border: 1px solid var(--border-color); }
+        .desc-inner h2 { color: var(--primary-color); font-size: 28px; margin-bottom: 20px; }
+        .desc-inner p { font-size: 17px; line-height: 1.8; color: #ddd; margin-bottom: 30px; }
+        .points-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: right; }
+        .point-item { color: white; font-size: 15px; display: flex; align-items: center; gap: 10px; }
+        .point-item i { color: var(--success-color); font-size: 20px; }
 
-        /* 📝 مواصفات المنتج (المضافة) */
-        .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 25px; font-size: 14px; }
-        .spec-item { background: #1a1a1a; padding: 10px; border-radius: 8px; border: 1px solid #222; }
-        .spec-item b { color: var(--primary); display: block; margin-bottom: 4px; }
+        /* القسم 3: الثمن والمنتجات */
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+        .product-card { background: var(--card-bg); border-radius: 20px; padding: 25px; border: 1px solid var(--border-color); position: relative; transition: 0.3s; }
+        .product-card:hover { border-color: var(--primary-color); transform: translateY(-5px); }
+        .p-img-container { width: 100%; aspect-ratio: 1; background: #fff; border-radius: 15px; overflow: hidden; margin-bottom: 20px; border: 1px solid #222; }
+        .p-img-container img { width: 100%; height: 100%; object-fit: contain; }
+        .p-title { font-size: 20px; font-weight: 800; color: var(--primary-color); margin-bottom: 10px; }
+        .p-price-box { margin: 15px 0; }
+        .p-price-box .new { font-size: 28px; font-weight: 900; color: white; }
+        .p-price-box .old { font-size: 18px; text-decoration: line-through; color: #666; margin-left: 10px; }
+        .stock-tag { background: #fff3cd; color: #856404; padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: bold; margin-bottom: 15px; display: inline-block; }
 
-        /* 🛒 Order Form */
-        .form-box { background: #1a1a1a; padding: 20px; border-radius: 15px; }
-        .form-box input { width: 100%; padding: 15px; margin-bottom: 12px; border-radius: 10px; border: 1px solid #333; background: #000; color: #fff; font-size: 16px; }
-        .btn-order { width: 100%; padding: 20px; background: var(--success); color: #fff; border: none; border-radius: 12px; font-size: 20px; font-weight: 900; cursor: pointer; }
+        /* استمارة الطلب (القسم 6) */
+        .order-form-container { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px; border: 1px dashed #444; margin-top: 20px; }
+        .order-form-container input { width: 100%; padding: 14px; margin-bottom: 12px; border-radius: 10px; border: 1px solid #333; background: #222; color: white; font-family: inherit; font-size: 14px; }
+        .order-form-container input:focus { border-color: var(--primary-color); }
+        .submit-quick { width: 100%; padding: 18px; background: var(--success-color); color: white; border: none; border-radius: 12px; font-weight: 900; font-size: 18px; cursor: pointer; transition: 0.3s; }
+        .submit-quick:hover { background: #0e9f6e; }
 
-        /* ⭐ Reviews */
-        .reviews-section { padding: 40px 15px; background: #000; border-top: 1px solid #222; }
-        .review-card { background: #111; padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid #222; }
-        .stars { color: #ffc107; margin-bottom: 8px; }
-        .rev-user { font-weight: bold; font-size: 14px; margin-top: 10px; color: var(--primary); }
+        /* القسم 4: الثقة والمصداقية */
+        .trust-section { padding: 60px 20px; background: var(--danger-color); color: white; text-align: center; }
+        .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1000px; margin: 40px auto; }
+        .trust-item i { font-size: 45px; color: var(--primary-color); margin-bottom: 20px; }
+        .trust-item h4 { font-size: 20px; margin-bottom: 10px; }
 
-        /* 🧠 Pages Section (من نحن / سياسة) */
-        .pages-links { padding: 40px 15px; background: #0a0a0a; text-align: center; font-size: 13px; color: #666; }
-        .pages-links a { color: #888; text-decoration: underline; margin: 0 10px; }
+        /* القسم 5: آراء الزبناء */
+        .reviews-section { padding: 60px 20px; background: #000; }
+        .review-card { background: #111; padding: 25px; border-radius: 20px; border: 1px solid #222; margin-bottom: 20px; position: relative; }
+        .stars { color: #ffc107; margin-bottom: 15px; font-size: 18px; }
+        .rev-name { color: var(--primary-color); font-weight: bold; margin-top: 15px; display: block; }
 
-        footer { background: #000; text-align: center; padding: 40px 20px; border-top: 1px solid #222; padding-bottom: 100px; }
-        .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; background: #000; padding: 15px; border-top: 2px solid var(--primary); z-index: 999; display: flex; justify-content: space-around; align-items: center; }
+        /* القسم 1: الأسئلة والأجوبة (FAQ) */
+        .faq-section { padding: 60px 20px; background: #0a0a0a; max-width: 800px; margin: 0 auto; }
+        .faq-item { background: #1a1a1a; padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid #333; }
+        .faq-q { font-weight: bold; color: var(--primary-color); margin-bottom: 10px; font-size: 18px; }
+        .faq-a { color: #ccc; line-height: 1.6; }
 
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 24px; }
-            .hero-cta { width: 100%; padding: 15px; font-size: 18px; }
-            .btn-order { font-size: 18px; }
+        /* القسم 3: سياسة التوصيل والاسترجاع */
+        .policy-section { padding: 40px 20px; text-align: center; border-top: 1px solid #222; }
+        .policy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 800px; margin: 0 auto; }
+        .p-box { background: #111; padding: 25px; border-radius: 15px; border: 1px solid var(--primary-color); }
+
+        /* القسم 7: Pop-up ذكي */
+        .popup-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 5000; justify-content: center; align-items: center; backdrop-filter: blur(8px); }
+        .popup-content { background: var(--card-bg); width: 90%; max-width: 350px; padding: 40px; border-radius: 25px; border: 2px solid var(--primary-color); text-align: center; position: relative; animation: slideUp 0.4s ease; }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .close-popup { position: absolute; top: 15px; right: 15px; color: white; font-size: 24px; cursor: pointer; }
+
+        /* الفوتر والأزرار السفلية */
+        footer { background: #000; padding: 60px 20px; text-align: center; border-top: 1px solid #222; padding-bottom: 120px; }
+        .footer-logo img { height: 60px; margin-bottom: 20px; }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: #000; display: flex; justify-content: space-around; padding: 15px 0; border-top: 2px solid var(--primary-color); z-index: 2000; box-shadow: 0 -5px 20px rgba(0,0,0,0.5); }
+        .nav-item { color: white; text-align: center; font-size: 13px; font-weight: bold; text-decoration: none; cursor: pointer; }
+        .nav-item i { font-size: 22px; margin-bottom: 5px; color: var(--primary-color); }
+        .whatsapp-float { position: fixed; bottom: 100px; left: 20px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 5px 20px rgba(0,0,0,0.5); z-index: 2500; border: 2px solid white; transition: 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        /* نافذة السلة الأصلية */
+        .cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 4000; justify-content: center; align-items: center; }
+        .cart-content { background: var(--card-bg); width: 95%; max-width: 450px; padding: 30px; border-radius: 20px; border: 1px solid var(--primary-color); max-height: 80vh; overflow-y: auto; }
+
+        /* تحسينات الموبايل */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 26px; }
+            .products-grid { grid-template-columns: 1fr; }
+            .policy-grid { grid-template-columns: 1fr; }
+            .video-box { max-width: 90%; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">🚚 توصيل سريع لجميع المدن المغربية | الأداء عند الاستلام</div>
+    <!-- 📢 القسم 4: شريط متحرك -->
+    <div class="announcement-bar">
+        <div class="moving-text">
+            🚚 توصيل سريع لجميع المدن المغربية | 💰 الأداء عند الاستلام | 🔥 عرض محدود لليوم فقط بمناسبة كأس إفريقيا 2025 | 🇲🇦 جودة مغربية أصلية
+        </div>
+    </div>
 
+    <!-- الهيدر -->
     <header>
-        <div class="header-flex">
-            <div class="logo"><img src="https://i.postimg.cc/g0ybBZ6t/IMG-20251126-205405-472.jpg" alt="Saih Store"></div>
-            <div style="font-weight: 900; color: var(--primary);">Saih Store</div>
+        <div class="header-container">
+            <div class="logo"><img src="https://i.postimg.cc/g0ybBZ6t/IMG-20251126-205405-472.jpg" alt="Logo"></div>
+            <div class="cart-icon" onclick="openCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge" id="cartBadge">0</span>
+            </div>
         </div>
     </header>
 
+    <!-- 📲 القسم 7: Pop-up ذكي -->
+    <div class="popup-overlay" id="smartPopup">
+        <div class="popup-content">
+            <span class="close-popup" onclick="closePopup()">&times;</span>
+            <h2 style="color:var(--primary-color); margin-bottom:15px;">🎉 مرحباً بك!</h2>
+            <p style="margin-bottom:25px;">استفد من عرض كأس إفريقيا: تخفيض خاص وتوصيل مجاني لجميع الطلبات اليوم فقط!</p>
+            <button onclick="closePopup()" class="submit-quick">استفد من العرض الآن</button>
+        </div>
+    </div>
+
+    <!-- القسم 1: Hero Section -->
     <section class="hero">
-        <h1>اكتشف الفخامة المغربية مع Tamghrabit 2025</h1>
-        <p>منتجات عصرية بجودة استثنائية مصممة خصيصاً لذوقك الرفيع.</p>
-        <a href="#products-area" class="hero-cta">🛒 اطلب الآن - استفد من العرض</a>
+        <h1>🇲🇦 استعد لكأس إفريقيا 2025 مع Saih Store</h1>
+        <p>منتجات عصرية بجودة عالية، مريحة للاستعمال اليومي والتشجيع.<br>نوفر لك الأناقة والراحة في آن واحد.</p>
+        <div class="hero-features">
+            <div class="h-feat">✅ الأداء عند الاستلام</div>
+            <div class="h-feat">🚚 توصيل 24–48 ساعة</div>
+            <div class="h-feat">🔄 إمكانية الاستبدال</div>
+        </div>
+        <a href="#products-area" class="cta-btn">🛒 اطلب الآن - استفد من العرض</a>
+        
+        <!-- القسم 10: الفيديو -->
+        <div class="video-box">
+            <video autoplay muted loop playsinline>
+                <source src="https://video.wixstatic.com/video/11062b_11116666777788889999aaaabbbbcccc/720p/mp4/file.mp4" type="video/mp4">
+            </video>
+        </div>
     </section>
 
-    <div class="shipping-info">
-        <div class="ship-item"><i class="fas fa-shipping-fast"></i><br>توصيل سريع</div>
-        <div class="ship-item"><i class="fas fa-hand-holding-usd"></i><br>دفع عند الاستلام</div>
-        <div class="ship-item"><i class="fas fa-sync-alt"></i><br>استبدال سهل</div>
+    <!-- القسم 2: وصف المنتج -->
+    <section class="description-box">
+        <div class="desc-inner">
+            <h2>لماذا هذا المنتج؟</h2>
+            <p>تم تصميم هذا الحذاء خصيصاً للي باغي يجمع بين الراحة والأناقة، مثالي للتشجيع خلال كأس إفريقيا والاستعمال اليومي. المواد المختارة بعناية تضمن لك متانة تدوم طويلاً.</p>
+            <div class="points-grid">
+                <div class="point-item"><i class="fas fa-check-circle"></i> جودة ممتازة (نخب أول)</div>
+                <div class="point-item"><i class="fas fa-check-circle"></i> تصميم عصري وفريد</div>
+                <div class="point-item"><i class="fas fa-check-circle"></i> مريح وخفيف الوزن</div>
+                <div class="point-item"><i class="fas fa-check-circle"></i> مناسب للخروج والتشجيع</div>
+                <div class="point-item"><i class="fas fa-check-circle"></i> يدوم مدة طويلة جداً</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- القسم 3: المنتجات والأسعار (ديناميكي من Google Sheets) -->
+    <div id="products-area" class="products-grid">
+        <!-- جاري تحميل البيانات... -->
+        <p style="text-align:center; width:100%; grid-column: 1 / -1; padding:50px;">جاري جلب أفضل العروض من Google Sheets...</p>
     </div>
 
-    <main class="products-container" id="products-area">
-        <p style="text-align: center;">جاري تحميل العروض الحصرية...</p>
-    </main>
+    <!-- القسم 4: الثقة والمصداقية -->
+    <section class="trust-section">
+        <h2>ثقتكم هي رأس مالنا</h2>
+        <div class="trust-grid">
+            <div class="trust-item">
+                <i class="fas fa-truck-fast"></i>
+                <h4>توصيل سريع</h4>
+                <p>نوصل لك لباب الدار في جميع المدن المغربية</p>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h4>الدفع عند الاستلام</h4>
+                <p>لا تدفع أي سنتيم حتى تستلم المنتج وتفحصه</p>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-sync"></i>
+                <h4>ضمان الاستبدال</h4>
+                <p>إمكانية الاستبدال في حالة وجود أي مشكل</p>
+            </div>
+        </div>
+        <p style="font-weight:900; font-size:20px;">🔥 أكثر من 500 زبون وثق في Saih Store هذا العام</p>
+    </section>
 
+    <!-- القسم 5: آراء الزبناء -->
     <section class="reviews-section">
-        <h2 style="text-align: center; color: var(--primary); margin-bottom: 25px;">ماذا يقول زبناؤنا؟ ⭐</h2>
-        <div class="review-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <p>“الجودة فاقت توقعاتي، التوصيل كان في أقل من 48 ساعة. الحذاء مريح جداً وشكلو أنيق.”</p>
-            <div class="rev-user">محمد - الدار البيضاء</div>
-        </div>
-        <div class="review-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <p>“تعامل احترافي، المنتج مطابق للصور 100%. شكراً Saih Store على المصداقية.”</p>
-            <div class="rev-user">ياسين - الرباط</div>
-        </div>
-        <div class="review-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <p>“خديت واحد ليا وواحد لولدي، الصراحة جودة ممتازة وسهل في التنظيف.”</p>
-            <div class="rev-user">سناء - مراكش</div>
+        <h2 style="text-align:center; color:var(--primary-color); margin-bottom:40px; font-size:28px;">ماذا يقول زبناؤنا؟ ⭐</h2>
+        <div style="max-width:1000px; margin:0 auto; padding:0 20px;">
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>“الصراحة جودة واعرة بزاف، الحذاء مريح والتوصيل كان سريع، شكراً ليكم.”</p>
+                <span class="rev-name">محمد - الدار البيضاء</span>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>“خديت 2 حبات ليا ولصديقي، عجبونا بزاف. معاملة احترافية وتوصيل لباب الدار.”</p>
+                <span class="rev-name">ياسين - الرباط</span>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>“أحسن تجربة شراء أونلاين، المنتج كيفما في الصور تماماً. أنصح به بشدة.”</p>
+                <span class="rev-name">أيوب - طنجة</span>
+            </div>
         </div>
     </section>
 
-    <div class="pages-links">
-        <h2>عن Saih Store</h2>
-        <p style="margin: 15px auto; max-width: 500px;">نحن متجر مغربي فخور، نسعى لتقديم أفضل المنتجات العصرية التي تمزج بين الأصالة والراحة. هدفنا هو إرضاء الزبون عبر الجودة والمصداقية.</p>
-        <a href="#">سياسة الخصوصية</a> | <a href="#">شروط الاستخدام</a> | <a href="#">سياسة الاسترجاع</a>
-    </div>
+    <!-- القسم 1: الأسئلة والأجوبة (FAQ) -->
+    <section class="faq-section">
+        <h2 style="text-align:center; color:white; margin-bottom:30px;">❓ الأسئلة الشائعة</h2>
+        <div class="faq-item">
+            <div class="faq-q">واش كاين الأداء عند الاستلام؟</div>
+            <div class="faq-a">نعم، الأداء يتم عند استلام الطلب يداً بيد والتأكد من جودة المنتج.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">شحال كتاخذ مدة التوصيل؟</div>
+            <div class="faq-a">مدة التوصيل تتراوح بين 24 و 48 ساعة حسب مدينتكم.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">واش نقدر نبدّل المنتج؟</div>
+            <div class="faq-a">نعم، نوفر سياسة استبدال مرنة في حالة وجود أي عيب مصنعي أو مشكل في المقاس.</div>
+        </div>
+    </section>
+
+    <!-- القسم 8: عرض إضافي -->
+    <section style="padding:40px 20px;">
+        <div style="background:var(--success-color); color:white; padding:30px; border-radius:20px; text-align:center; border:2px dashed var(--primary-color);">
+            <h2 style="font-size:30px; margin-bottom:10px;">🎁 عرض خاص لليوم</h2>
+            <p style="font-size:20px; font-weight:bold;">شري واحد وخذ الثاني بنصف الثمن!</p>
+            <p style="margin-top:15px; opacity:0.8;">⏰ العرض صالح فقط حتى نفاذ الكمية</p>
+        </div>
+    </section>
+
+    <!-- القسم 3: السياسات -->
+    <section class="policy-section">
+        <div class="policy-grid">
+            <div class="p-box">
+                <h4 style="color:var(--primary-color); margin-bottom:10px;">سياسة التوصيل</h4>
+                <p style="font-size:13px; color:#aaa;">نوصل لجميع المدن والقرى المغربية عبر أسرع شركات التوصيل.</p>
+            </div>
+            <div class="p-box">
+                <h4 style="color:var(--primary-color); margin-bottom:10px;">سياسة الاستبدال</h4>
+                <p style="font-size:13px; color:#aaa;">الاستبدال مضمون في حالة وجود أي مشكل، راحتكم هي أولويتنا.</p>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>© 2025 Saih Store. جميع الحقوق محفوظة.</p>
+        <div class="footer-logo"><img src="https://i.postimg.cc/g0ybBZ6t/IMG-20251126-205405-472.jpg" alt="Logo"></div>
+        <p>© 2025 Saih Store</p>
+        <p style="font-size:12px; color:#666; margin-top:10px;">متجر مغربي فخور | توصيل لجميع المدن | الدفع عند الاستلام</p>
+        <div style="margin-top:20px; font-size:11px; color:#444;">
+            <a href="#" style="color:#444;">سياسة الخصوصية</a> | <a href="#" style="color:#444;">شروط الاستخدام</a>
+        </div>
     </footer>
 
-    <div class="sticky-footer">
-        <a href="#products-area" style="text-decoration:none; background:var(--primary); color:#000; padding:10px 25px; border-radius:8px; font-weight:900;">اطلب الآن</a>
-        <a href="https://wa.me/212695050162" style="color: #25d366; font-size: 30px;"><i class="fab fa-whatsapp"></i></a>
+    <!-- الأزرار السفلية -->
+    <div class="bottom-nav">
+        <a onclick="window.scrollTo(0,0)" class="nav-item"><i class="fas fa-home"></i><br>الرئيسية</a>
+        <a onclick="openCart()" class="nav-item"><i class="fas fa-shopping-cart"></i><br>السلة <span id="cartCountNav">(0)</span></a>
+        <a href="https://wa.me/212695050162" class="nav-item"><i class="fab fa-whatsapp"></i><br>واتساب</a>
     </div>
 
-    <script>
-        const SHEET_ID = "1RmpZOJkkQTvYLPXNUxBxHkuNcqoiFn1z5Y0ZbQyx3vk";
-        const MY_PHONE = "212695050162";
+    <!-- زر واتساب العائم (القسم 7) -->
+    <a href="https://wa.me/212695050162?text=السلام عليكم، بغيت نطلب من متجر Saih Store. المدينة: . طريقة الأداء: عند الاستلام" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
+    <!-- نافذة السلة -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <h3 style="color:var(--primary-color); text-align:center; margin-bottom:20px;">سلة المشتريات</h3>
+            <div id="cartItemsList"></div>
+            <div style="padding:15px; border-top:1px solid #333; margin-top:20px; display:flex; justify-content:space-between; color:white; font-weight:bold;">
+                <span>المجموع الكلي:</span>
+                <span><span id="cartTotal">0</span> درهم</span>
+            </div>
+            <button onclick="checkoutCart()" class="submit-quick" style="margin-top:15px;">إتمام الطلب الآن</button>
+            <button onclick="closeCart()" style="width:100%; background:transparent; color:white; border:none; margin-top:15px; font-size:14px; cursor:pointer;">إغلاق</button>
+        </div>
+    </div>
+
+    <!-- =======================================================
+         JAVASCRIPT - البرمجة والربط
+         ======================================================= -->
+    <script>
+        // الإعدادات الأساسية (بلا تغيير)
+        const SHEET_ID = "1RmpZOJkkQTvYLPXNUxBxHkuNcqoiFn1z5Y0ZbQyx3vk"; 
+        const MY_PHONE = "212695050162"; 
+
+        let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+
+        // 📲 Pop-up ذكي يظهر مرة واحدة
+        window.onload = function() {
+            if(!sessionStorage.getItem('popupShown')) {
+                setTimeout(() => {
+                    document.getElementById('smartPopup').style.display = 'flex';
+                    sessionStorage.setItem('popupShown', 'true');
+                }, 4000);
+            }
+            updateBadge();
+            fetchProducts();
+        };
+
+        function closePopup() { document.getElementById('smartPopup').style.display = 'none'; }
+
+        // جلب المنتجات من Google Sheets
         async function fetchProducts() {
             try {
                 const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
@@ -177,62 +389,129 @@
                 container.innerHTML = "";
 
                 json.table.rows.forEach((row, index) => {
-                    const title = row.c[0]?.v || "";
-                    const price = "249"; // الثمن من الصورة السابقة
-                    const imgUrl = row.c[4]?.v || "";
-                    if(!title) return;
+                    const title = row.c[0]?.v || "منتج مميز";
+                    const price = row.c[1]?.v || "249"; 
+                    const oldPrice = row.c[2]?.v || "399";
+                    const discountTag = row.c[3]?.v || "عرض محدود";
+                    const imgStr = row.c[4]?.v || "https://via.placeholder.com/400";
+                    if(title === "title") return;
+
+                    const watching = Math.floor(Math.random() * 20) + 5;
+                    const safeTitle = title.replace(/'/g, "");
 
                     container.innerHTML += `
                         <div class="product-card">
-                            <div class="product-img"><img src="${imgUrl.split(',')[0]}" alt="${title}"></div>
-                            <div class="product-details">
-                                <h2 class="p-title">${title}</h2>
-                                <div class="p-price">${price} درهم <span>399 درهم</span></div>
-                                
-                                <div class="specs-grid">
-                                    <div class="spec-item"><b>المواد</b> جلد صناعي نخب أول</div>
-                                    <div class="spec-item"><b>الوزن</b> خفيف ومريح (400g)</div>
-                                    <div class="spec-item"><b>الموسم</b> لجميع الفصول</div>
-                                    <div class="spec-item"><b>الاستخدام</b> يومي / رياضي</div>
-                                </div>
+                            <div class="stock-tag">🔥 باقي غير عدد محدود فالستوك</div>
+                            <div style="font-size:11px; color:#00ff00; margin-bottom:10px;">👀 يشاهده الآن ${watching} شخصاً</div>
+                            <div class="p-img-container"><img src="${imgStr.split(',')[0]}" alt="${title}"></div>
+                            <h3 class="p-title">${title}</h3>
+                            <div class="p-price-box">
+                                <span class="new">${price} درهم فقط 🔥</span>
+                                <span class="old">${oldPrice} درهم</span>
+                            </div>
+                            
+                            <!-- استمارة الطلب السريع -->
+                            <div class="order-form-container">
+                                <p style="font-size:12px; margin-bottom:10px; color:var(--primary-color); text-align:center;">👇 عمّر معلوماتك لتأكيد الطلب</p>
+                                <input type="text" placeholder="الاسم الكامل" id="n-${index}">
+                                <input type="tel" placeholder="رقم الهاتف" id="p-${index}">
+                                <input type="text" placeholder="المدينة" id="a-${index}">
+                                <input type="text" placeholder="المقاس (Size)" id="s-${index}">
+                                <button class="submit-quick" onclick="sendQuickOrder(${index}, '${safeTitle}', '${price}')">✔️ أكد الطلب دابا</button>
+                            </div>
 
-                                <div class="form-box">
-                                    <p style="font-size: 13px; margin-bottom: 10px; color: var(--primary);">👇 عمّر المعلومات هنا للطلب السريع</p>
-                                    <input type="text" placeholder="الاسم الكامل" id="n-${index}">
-                                    <input type="tel" placeholder="رقم الهاتف" id="p-${index}">
-                                    <input type="text" placeholder="المدينة" id="a-${index}">
-                                    <button class="btn-order" onclick="sendOrder(${index}, '${title.replace(/'/g, "")}', '${price}')">أكد الطلب الآن 🛍️</button>
-                                </div>
-                                <p style="text-align:center; font-size:11px; color:#666; margin-top:10px;">⚠️ العرض محدود - الأداء عند الاستلام</p>
+                            <div style="text-align:center; margin-top:15px;">
+                                <button onclick="addToCart('${safeTitle}', '${price}', '${imgStr.split(',')[0]}')" style="background:transparent; color:#888; border:1px solid #333; padding:8px 15px; border-radius:8px; font-size:12px; cursor:pointer;">🛒 إضافة للسلة</button>
                             </div>
                         </div>
                     `;
                 });
-            } catch (e) { console.error(e); }
+            } catch (e) {
+                console.error("Google Sheets Connection Error:", e);
+                document.getElementById('products-area').innerHTML = "<p style='color:red; text-align:center; width:100%;'>تعذر جلب البيانات، يرجى التأكد من رابط Google Sheets.</p>";
+            }
         }
 
-        function sendOrder(idx, title, price) {
+        // إرسال الطلب (Purchase)
+        function sendQuickOrder(idx, title, price) {
             const name = document.getElementById(`n-${idx}`).value;
             const phone = document.getElementById(`p-${idx}`).value;
             const city = document.getElementById(`a-${idx}`).value;
+            const size = document.getElementById(`s-${idx}`).value;
 
             if(!name || !phone || !city) {
-                alert("يرجى ملء كافة المعلومات (الاسم، الهاتف، المدينة) لإتمام الطلب.");
+                alert("يرجى ملء الاسم الكامل، رقم الهاتف والمدينة لإتمام الطلب.");
                 return;
             }
 
-            // Pixel Tracking (لا يتم تغيير المنطق)
-            if(typeof fbq !== 'undefined') fbq('track', 'Purchase', { value: 249, currency: 'MAD' });
-            if(typeof ttq !== 'undefined') ttq.track('CompletePayment', { value: 249, currency: 'MAD' });
+            // 🏁 القسم 8: تأكيد بعد الطلب
+            alert("✅ تم استلام طلبك بنجاح! سيتم التواصل معك هاتفياً لتأكيده.");
 
-            const msg = `🇲🇦 *طلب جديد من Saih Store*%0a%0a📦 *المنتج:* ${title}%0a💰 *الثمن:* ${price} درهم%0a👤 *الاسم:* ${name}%0a📞 *الهاتف:* ${phone}%0a📍 *المدينة:* ${city}%0aــــــــــــــــــــــــــــــــــــــــــــ%0a🚚 توصيل مجاني لباب المنزل`;
+            // تتبع البيكسل - Meta
+            if(typeof fbq !== 'undefined') fbq('track', 'Purchase', { value: parseFloat(price), currency: 'MAD' });
+            
+            // تتبع البيكسل - TikTok
+            if(typeof ttq !== 'undefined') ttq.track('CompletePayment', { content_name: title, value: parseFloat(price), currency: 'MAD' });
+
+            const msg = `🇲🇦 *طلب جديد - Saih Store*%0a%0a📦 *المنتج:* ${title}%0a💰 *الثمن:* ${price} درهم%0a📏 *المقاس:* ${size || 'غير محدد'}%0aــــــــــــــــــــــــــــــــــــــــــــ%0a👤 *الزبون:* ${name}%0a📞 *الهاتف:* ${phone}%0a📍 *المدينة:* ${city}%0aــــــــــــــــــــــــــــــــــــــــــــ%0a🚚 الأداء عند الاستلام`;
+            
             window.open(`https://wa.me/${MY_PHONE}?text=${msg}`, '_blank');
         }
 
-        fetchProducts();
+        function addToCart(title, price, img) {
+            cart.push({ title, price, img });
+            localStorage.setItem('myCart', JSON.stringify(cart));
+            updateBadge();
+            if(typeof fbq !== 'undefined') fbq('track', 'AddToCart', { content_name: title, value: parseFloat(price), currency: 'MAD' });
+            alert("تمت الإضافة للسلة بنجاح! ✅");
+        }
+
+        function updateBadge() {
+            const count = cart.length;
+            document.getElementById('cartBadge').innerText = count;
+            document.getElementById('cartCountNav').innerText = `(${count})`;
+        }
+
+        function openCart() {
+            const list = document.getElementById('cartItemsList');
+            let total = 0;
+            list.innerHTML = cart.length ? "" : "<p style='text-align:center; color:white; padding:20px;'>السلة فارغة</p>";
+            cart.forEach((item, i) => {
+                total += parseFloat(item.price);
+                list.innerHTML += `
+                    <div style="display:flex; justify-content:space-between; align-items:center; color:white; margin-bottom:15px; background:#1a1a1a; padding:10px; border-radius:10px;">
+                        <img src="${item.img}" style="width:40px; height:40px; border-radius:5px;">
+                        <span style="font-size:12px; flex:1; margin:0 10px;">${item.title}</span>
+                        <b style="font-size:14px;">${item.price} درهم</b>
+                        <i class="fas fa-trash" onclick="removeFromCart(${i})" style="color:red; margin-left:10px; cursor:pointer;"></i>
+                    </div>
+                `;
+            });
+            document.getElementById('cartTotal').innerText = total;
+            document.getElementById('cartModal').style.display = 'flex';
+        }
+
+        function removeFromCart(i) {
+            cart.splice(i, 1);
+            localStorage.setItem('myCart', JSON.stringify(cart));
+            updateBadge();
+            openCart();
+        }
+
+        function closeCart() { document.getElementById('cartModal').style.display = 'none'; }
+
+        function checkoutCart() {
+            if(cart.length === 0) return;
+            let products = cart.map(item => `▫️ ${item.title}`).join('%0a');
+            let total = document.getElementById('cartTotal').innerText;
+            const msg = `👋 *طلب سلة مشتريات*%0a%0a🛒 *المنتجات:*%0a${products}%0a💰 *المجموع:* ${total} درهم%0a%0aيرجى التواصل معي لتأكيد معلومات التوصيل.`;
+            window.open(`https://wa.me/${MY_PHONE}?text=${msg}`, '_blank');
+            cart = []; localStorage.setItem('myCart', '[]'); updateBadge(); closeCart();
+        }
     </script>
 </body>
 </html>
+
 
 
 
