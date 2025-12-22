@@ -29,187 +29,229 @@
       w.Tawk_Alphabet = t;
       var n = w.ttq = w.ttq || []; n.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie"], n.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var e = 0; e < n.methods.length; e++)n.setAndDefer(n, n.methods[e]); n.instance = function (t) { for (var e = n._i[t] || [], i = 0; i < n.methods.length; i++)n.setAndDefer(e, n.methods[i]); return e }; n.load = function (e, i) { var a = "https://analytics.tiktok.com/i18n/pixel/events.js"; n._i = n._i || {}, n._i[e] = [], n._i[e]._u = a, n._t = n._t || {}, n._t[e] = +new Date, n._o = n._o || {}, n._o[e] = i || {}; var o = d.createElement("script"); o.type = "text/javascript", o.async = !0, o.src = a + "?sdkid=" + e + "&lib=" + n.methods[0]; var r = d.getElementsByTagName("script")[0]; r.parentNode.insertBefore(o, r) };
       
-      ttq.load('YOUR_TIKTOK_PIXEL_ID'); // ضعي ID البيكسل الخاص بتيك توك هنا
+      ttq.load('YOUR_TIKTOK_PIXEL_ID'); // حط ID ديال التيك توك هنا
       ttq.page();
     }(window, document, 'ttq');
     </script>
     <!-- End TikTok Pixel Code -->
     
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root { 
-            --primary-color: #d4af37; 
-            --danger-color: #c1272d;  
-            --success-color: #006233; 
+            --primary-color: #d4af37; /* ذهبي */
+            --danger-color: #c1272d;  /* أحمر مغربي */
+            --success-color: #006233; /* أخضر مغربي */
             --bg-color: #000000;
-            --card-bg: #151515;
+            --card-bg: #111111;
             --input-bg: #1f1f1f;
             --text-main: #ffffff;
             --text-sub: #a1a1aa;
-            --border-color: #333333;
+            --border-color: #2a2a2a;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; outline: none; -webkit-tap-highlight-color: transparent; }
-        
-        body { 
-            font-family: 'Cairo', sans-serif; 
-            background-color: var(--bg-color); 
-            background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
-            color: var(--text-main); 
-            direction: rtl; 
-            text-align: right; 
-            padding-bottom: 80px; 
-            overflow-x: hidden; 
-        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-color); color: var(--text-main); direction: rtl; text-align: right; overflow-x: hidden; }
 
-        header { 
-            background-color: var(--danger-color); 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5); 
-            border-bottom: 3px solid var(--primary-color);
-            position: sticky; top: 0; z-index: 1000; 
-        }
-        .header-container { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; max-width: 1200px; margin: 0 auto; height: 70px; }
-        .logo img { height: 50px; object-fit: contain; }
-        
-        .header-icons { display: flex; gap: 15px; align-items: center; }
-        .icon-btn { font-size: 24px; cursor: pointer; color: white; position: relative; }
-        .cart-badge { 
-            position: absolute; top: -8px; right: -8px; 
-            background-color: var(--success-color); color: white; 
-            font-size: 11px; width: 22px; height: 22px; 
-            border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; border: 2px solid white;
-        }
+        /* الهيدر */
+        header { background-color: var(--danger-color); border-bottom: 3px solid var(--primary-color); position: sticky; top: 0; z-index: 2000; height: 70px; display: flex; align-items: center; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .header-container { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .logo img { height: 50px; }
+        .cart-icon { font-size: 24px; color: white; position: relative; cursor: pointer; }
+        .badge { position: absolute; top: -10px; right: -10px; background: var(--success-color); color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 12px; border: 2px solid white; }
 
-        .section-title { text-align: center; margin: 40px 0 30px; font-size: 28px; font-weight: 900; color: var(--primary-color); text-shadow: 2px 2px 5px rgba(0,0,0,0.5); }
-        .section-title::after { content: "🇲🇦 🏆 🇲🇦"; display: block; font-size: 18px; margin-top: 10px; }
-        
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; padding: 0 15px; max-width: 1200px; margin: 0 auto; }
-        
-        .product-card { 
-            background: var(--card-bg); 
-            border-radius: 20px; padding: 20px; position: relative; 
-            display: flex; flex-direction: column; 
-            border: 2px solid var(--border-color); 
-            transition: 0.3s;
-        }
-        .product-card:hover { border-color: var(--primary-color); transform: translateY(-5px); }
-        
-        .product-img-container { position: relative; width: 100%; aspect-ratio: 1/1; margin-bottom: 15px; border-radius: 15px; overflow: hidden; background: #fff; border: 1px solid var(--primary-color); }
-        .product-img { width: 100%; height: 100%; object-fit: contain; }
-        
-        .discount-tag { position: absolute; top: 15px; right: 15px; background: var(--danger-color); color: white; padding: 5px 12px; border-radius: 8px; font-size: 12px; font-weight: bold; z-index: 2; border: 1px solid var(--primary-color); }
+        /* القسم 1: Hero Section */
+        .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://i.postimg.cc/VvFWP3Vq/1764285865239.png'); background-size: cover; background-position: center; padding: 60px 20px; text-align: center; border-bottom: 4px solid var(--primary-color); }
+        .hero h1 { font-size: 32px; font-weight: 900; color: var(--primary-color); margin-bottom: 15px; }
+        .hero p { font-size: 18px; margin-bottom: 25px; line-height: 1.6; }
+        .hero-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; max-width: 600px; margin: 0 auto 30px; }
+        .h-feat { background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px; font-size: 13px; border: 1px solid var(--primary-color); }
+        .cta-btn { background: var(--success-color); color: white; padding: 18px 40px; border-radius: 50px; font-size: 20px; font-weight: 900; border: none; cursor: pointer; box-shadow: 0 0 20px var(--success-color); display: inline-block; animation: pulse 2s infinite; }
 
-        .product-title { font-size: 17px; font-weight: 800; margin-bottom: 10px; color: var(--primary-color); min-height: 45px; }
-        .price-box { display: flex; gap: 10px; align-items: center; margin-bottom: 15px; }
-        .curr-price { color: white; font-weight: 900; font-size: 22px; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
-        /* استمارة المعلومات تحت المنتج */
-        .direct-form {
-            background: rgba(255,255,255,0.05);
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            border: 1px dashed var(--primary-color);
-        }
-        .direct-form input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            background: var(--input-bg);
-            color: white;
-            font-family: 'Cairo', sans-serif;
-        }
-        .direct-form input:focus { border-color: var(--success-color); }
+        /* القسم 2: وصف المنتج العام */
+        .description-section { padding: 50px 20px; background: #0a0a0a; text-align: center; }
+        .desc-box { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid var(--border-color); }
+        .desc-box h2 { color: var(--primary-color); margin-bottom: 20px; }
+        .points { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: right; margin-top: 20px; }
+        .point-item { font-size: 15px; color: #ddd; }
+        .point-item i { color: var(--success-color); margin-left: 8px; }
 
-        .actions-btn { display: flex; gap: 10px; }
-        .buy-now-btn { flex: 2; background: var(--success-color); color: white; border: none; padding: 15px; border-radius: 10px; font-weight: 900; font-size: 16px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
-        .buy-now-btn:hover { background: #0e9f6e; transform: scale(1.02); }
-        .add-cart-btn { flex: 1; background: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); border-radius: 10px; cursor: pointer; font-size: 20px; display: flex; justify-content: center; align-items: center; }
+        /* القسم 3: شبكة المنتجات (Dynamic) */
+        .products-section { padding: 50px 20px; }
+        .section-title { text-align: center; margin-bottom: 40px; font-size: 28px; font-weight: 900; color: var(--primary-color); }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .product-card { background: var(--card-bg); border-radius: 20px; padding: 20px; border: 2px solid var(--border-color); transition: 0.3s; position: relative; }
+        .product-card:hover { border-color: var(--primary-color); }
+        .p-img-box { width: 100%; aspect-ratio: 1; background: #fff; border-radius: 15px; overflow: hidden; margin-bottom: 15px; }
+        .p-img-box img { width: 100%; height: 100%; object-fit: contain; }
+        .p-price { font-size: 24px; font-weight: 900; color: var(--primary-color); margin: 10px 0; }
+        .old-price { text-decoration: line-through; color: #777; font-size: 16px; margin-left: 10px; }
+        .stock-warn { background: #fff3cd; color: #856404; padding: 5px; border-radius: 5px; font-size: 12px; margin-bottom: 10px; font-weight: bold; }
+
+        /* استمارة الطلب تحت المنتج */
+        .order-form { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; margin: 15px 0; }
+        .order-form input { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #333; background: #222; color: white; font-family: inherit; }
+        .order-form input:focus { border-color: var(--primary-color); }
+
+        /* القسم 4: الثقة */
+        .trust-section { padding: 50px 20px; background: var(--danger-color); color: white; text-align: center; }
+        .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1000px; margin: 30px auto; }
+        .trust-item i { font-size: 40px; margin-bottom: 15px; color: var(--primary-color); }
+
+        /* القسم 5: آراء الزبناء */
+        .reviews-section { padding: 50px 20px; background: #000; }
+        .review-card { background: #111; padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid #222; }
+        .stars { color: #ffc107; margin-bottom: 10px; }
+
+        /* القسم 6: طريقة الطلب */
+        .steps-section { padding: 50px 20px; background: #0a0a0a; text-align: center; }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; max-width: 900px; margin: 30px auto; }
+        .step-item { padding: 20px; }
+        .step-num { width: 40px; height: 40px; background: var(--primary-color); color: black; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 15px; font-weight: bold; }
+
+        /* القسم 8: العرض الخاص */
+        .special-offer { background: var(--success-color); color: white; padding: 20px; text-align: center; margin: 40px 20px; border-radius: 15px; border: 2px dashed var(--primary-color); }
 
         /* الفوتر */
-        .mobile-bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--danger-color); display: flex; justify-content: space-around; padding: 15px 0; border-top: 3px solid var(--primary-color); z-index: 1500; }
-        .nav-item { color: white; font-weight: bold; text-align: center; font-size: 12px; }
-        .whatsapp-float { position: fixed; bottom: 90px; left: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 5px 20px rgba(0,0,0,0.5); z-index: 1400; border: 2px solid white; }
+        footer { background: #000; padding: 40px 20px; text-align: center; border-top: 2px solid var(--border-color); border-bottom: 80px solid #000; }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: #000; display: flex; justify-content: space-around; padding: 15px 0; border-top: 2px solid var(--primary-color); z-index: 1000; }
+        .nav-item { color: white; text-align: center; font-size: 12px; font-weight: bold; }
 
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; justify-content: center; align-items: center; }
-        .modal-content { background: var(--card-bg); width: 90%; max-width: 450px; padding: 30px; border-radius: 20px; border: 2px solid var(--primary-color); position: relative; }
-        .close-modal { position: absolute; top: 15px; right: 15px; color: white; font-size: 25px; cursor: pointer; }
+        .whatsapp-float { position: fixed; bottom: 100px; left: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 5px 20px rgba(0,0,0,0.5); z-index: 1500; }
 
         @media (max-width: 768px) {
             .products-grid { grid-template-columns: 1fr; }
+            .points { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="lang-splash" id="langSplash" style="display:none;">
-        <div class="lang-box" style="text-align: center;">
-            <img src="https://i.postimg.cc/g0ybBZ6t/IMG-20251126-205405-472.jpg" style="height:100px; margin-bottom: 20px;">
-            <h2 style="color:white; margin-bottom: 30px;">MAROC 2025 🏆 اختر اللغة</h2>
-            <button onclick="selectLanguage('ar')" style="width:100%; padding:15px; margin-bottom:10px; border-radius:10px; background:var(--danger-color); color:white; font-weight:bold; border:none; cursor:pointer;">العربية 🇲🇦</button>
-            <button onclick="selectLanguage('en')" style="width:100%; padding:15px; border-radius:10px; background:var(--card-bg); color:white; font-weight:bold; border:1px solid white; cursor:pointer;">English 🇬🇧</button>
-        </div>
-    </div>
-
+    <!-- الهيدر -->
     <header>
         <div class="header-container">
             <div class="logo"><img src="https://i.postimg.cc/g0ybBZ6t/IMG-20251126-205405-472.jpg" alt="Logo"></div>
-            <div class="header-icons">
-                <div class="icon-btn" onclick="openCart()">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-badge" id="cartBadge">0</span>
-                </div>
+            <div class="cart-icon" onclick="openCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge" id="cartBadge">0</span>
             </div>
         </div>
     </header>
 
-    <div class="hero-slider"><img src="https://i.postimg.cc/VvFWP3Vq/1764285865239.png" style="width:100%; border-bottom: 3px solid var(--primary-color);"></div>
-
-    <div id="products">
-        <div class="section-title" data-i18n="featured_offers">عروض كأس إفريقيا للأمم - المغرب 2025</div>
-        <div class="products-grid" id="products-container">
-            <!-- سيتم تحميل المنتجات هنا -->
+    <!-- القسم 1: Hero Section -->
+    <section class="hero">
+        <h1>🇲🇦 استعد لكأس إفريقيا 2025 مع Saih Store</h1>
+        <p>منتج عصري بجودة عالية، مريح للاستعمال اليومي والتشجيع.<br>توصيل سريع لجميع المدن المغربية.</p>
+        <div class="hero-features">
+            <div class="h-feat">✅ الأداء عند الاستلام</div>
+            <div class="h-feat">🚚 توصيل 24–48 ساعة</div>
+            <div class="h-feat">🔄 إمكانية الاستبدال</div>
         </div>
+        <a href="#products" class="cta-btn">🛒 اطلب الآن</a>
+    </section>
+
+    <!-- القسم 2: وصف المنتج -->
+    <section class="description-section">
+        <div class="desc-box">
+            <h2>وصف المنتج</h2>
+            <p>هذا المنتج مصمم خصيصاً للي باغي يجمع بين الراحة والأناقة، مثالي للتشجيع خلال كأس إفريقيا والاستعمال اليومي.</p>
+            <div class="points">
+                <div class="point-item"><i class="fas fa-check-circle"></i> جودة ممتازة</div>
+                <div class="point-item"><i class="fas fa-check-circle"></i> تصميم عصري</div>
+                <div class="point-item"><i class="fas fa-check-circle"></i> مريح وخفيف</div>
+                <div class="point-item"><i class="fas fa-check-circle"></i> مناسب للخروج والتشجيع</div>
+                <div class="point-item"><i class="fas fa-check-circle"></i> يدوم مدة طويلة</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- القسم 3: المنتجات -->
+    <section id="products" class="products-section">
+        <h2 class="section-title">العروض المميزة 🔥</h2>
+        <div class="products-grid" id="products-container">
+            <!-- تحميل عبر جافا سكريبت -->
+        </div>
+    </section>
+
+    <!-- القسم 4: الثقة -->
+    <section class="trust-section">
+        <h2>لماذا تختار Saih Store؟</h2>
+        <div class="trust-grid">
+            <div class="trust-item"><i class="fas fa-hand-holding-usd"></i><br>الأداء عند الاستلام</div>
+            <div class="trust-item"><i class="fas fa-shipping-fast"></i><br>توصيل سريع لجميع المدن</div>
+            <div class="trust-item"><i class="fas fa-sync-alt"></i><br>إمكانية الاستبدال</div>
+        </div>
+        <p>أكثر من 100 زبون اختار Saih Store وثق في الجودة ديالنا ✅</p>
+    </section>
+
+    <!-- القسم 5: آراء الزبناء -->
+    <section class="reviews-section">
+        <h2 class="section-title">آراء الزبناء ⭐</h2>
+        <div style="max-width:800px; margin:0 auto;">
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>“المنتج جا بجودة زوينة بزاف والتوصيل كان سريع” – <b>محمد</b></p>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>“مريح وشكلو زوين، أنصح به” – <b>أيوب</b></p>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>“تجربة شراء ممتازة” – <b>ياسين</b></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- القسم 6: طريقة الطلب -->
+    <section class="steps-section">
+        <h2>كيفاش تطلب؟</h2>
+        <div class="steps-grid">
+            <div class="step-item"><div class="step-num">1</div>اختار المنتج</div>
+            <div class="step-item"><div class="step-num">2</div>عمّر الاسم والهاتف</div>
+            <div class="step-item"><div class="step-num">3</div>أكد الطلب</div>
+            <div class="step-item"><div class="step-num">4</div>التوصيل والدفع</div>
+        </div>
+    </section>
+
+    <!-- القسم 8: عرض إضافي -->
+    <div class="special-offer">
+        <h2>🎁 عرض خاص</h2>
+        <p>شري واحد وخذ الثاني بنصف الثمن</p>
+        <p style="font-weight:900; margin-top:10px;">⏰ العرض صالح اليوم فقط</p>
     </div>
 
-    <div class="mobile-bottom-nav">
+    <!-- الفوتر -->
+    <footer>
+        <p>© 2025 Saih Store</p>
+        <p>متجر مغربي | توصيل لجميع المدن | الأداء عند الاستلام</p>
+    </footer>
+
+    <!-- أزرار التنقل السفلية -->
+    <div class="bottom-nav">
         <div class="nav-item" onclick="window.scrollTo(0,0)"><i class="fas fa-home"></i><br>الرئيسية</div>
         <div class="nav-item" onclick="openCart()"><i class="fas fa-shopping-cart"></i><br>السلة</div>
         <div class="nav-item" onclick="window.location.href='https://wa.me/212695050162'"><i class="fab fa-whatsapp"></i><br>واتساب</div>
     </div>
 
-    <a href="https://wa.me/212695050162" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+    <!-- زر واتساب العائم -->
+    <a href="https://wa.me/212695050162?text=السلام عليكم، بغيت نطلب هذا المنتج من Saih Store. المدينة: . طريقة الأداء: عند الاستلام" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
     <!-- نافذة السلة -->
     <div class="modal-overlay" id="cartModal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeCart()">&times;</span>
-            <h3 style="color:var(--primary-color); text-align:center; margin-bottom:20px;">سلة المشتريات</h3>
-            <div id="cartItemsList" style="max-height: 300px; overflow-y: auto;"></div>
-            <div style="padding:15px; border-top:1px solid #333; margin-top:15px; display:flex; justify-content:space-between; color:white; font-weight:bold;">
+            <h3 style="text-align:center; color:var(--primary-color); margin-bottom:20px;">سلة المشتريات</h3>
+            <div id="cartItemsList" style="max-height: 250px; overflow-y: auto;"></div>
+            <div style="padding:15px; border-top:1px solid #333; display:flex; justify-content:space-between; color:white; font-weight:bold;">
                 <span>المجموع:</span>
-                <span><span id="cartTotal">0</span> د.م</span>
+                <span><span id="cartTotal">0</span> درهم</span>
             </div>
-            <button onclick="openCartOrderForm()" style="width:100%; padding:15px; background:var(--success-color); color:white; border:none; border-radius:10px; font-weight:bold; margin-top:15px;">إتمام الطلب</button>
-        </div>
-    </div>
-
-    <!-- نافذة طلب السلة -->
-    <div class="modal-overlay" id="cartOrderModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="document.getElementById('cartOrderModal').style.display='none'">&times;</span>
-            <h3 style="color:var(--primary-color); text-align:center; margin-bottom:20px;">معلومات التوصيل</h3>
-            <form onsubmit="submitCartOrder(event)">
-                <input type="text" id="c_name" placeholder="الاسم الكامل" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; background:#1f1f1f; color:white; border:1px solid #333;" required>
-                <input type="tel" id="c_phone" placeholder="رقم الهاتف" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; background:#1f1f1f; color:white; border:1px solid #333;" required>
-                <input type="text" id="c_city" placeholder="المدينة والعنوان" style="width:100%; padding:12px; margin-bottom:20px; border-radius:8px; background:#1f1f1f; color:white; border:1px solid #333;" required>
-                <button type="submit" style="width:100%; padding:15px; background:var(--success-color); color:white; border:none; border-radius:10px; font-weight:bold;">تأكيد عبر واتساب</button>
-            </form>
+            <button onclick="openCartOrderForm()" style="width:100%; padding:15px; background:var(--success-color); color:white; border:none; border-radius:10px; font-weight:bold; margin-top:15px;">إتمام الطلب عبر واتساب</button>
+            <button onclick="closeCart()" style="width:100%; padding:10px; background:transparent; color:white; border:none; font-size:14px;">إغلاق</button>
         </div>
     </div>
 
@@ -218,14 +260,6 @@
         const MY_PHONE = "212695050162"; 
 
         let cart = JSON.parse(localStorage.getItem('myCart')) || [];
-        let currentLang = localStorage.getItem('lang') || 'ar';
-
-        if(!localStorage.getItem('lang')) document.getElementById('langSplash').style.display = 'flex';
-
-        function selectLanguage(lang) {
-            localStorage.setItem('lang', lang);
-            location.reload();
-        }
 
         async function fetchProducts() {
             try {
@@ -238,8 +272,8 @@
 
                 json.table.rows.forEach((row, index) => {
                     const title = row.c[0]?.v || "";
-                    let price = row.c[1]?.v || "0";
-                    const disc = row.c[3]?.v || "";
+                    let price = row.c[1]?.v || "199";
+                    const oldPrice = "299"; // ثمن افتراضي للعرض
                     let imgStr = row.c[4]?.v || "";
                     if(title === "title" || !title) return;
                     
@@ -248,55 +282,52 @@
 
                     container.innerHTML += `
                         <div class="product-card">
-                            ${disc ? `<div class="discount-tag">${disc}</div>` : ''}
-                            <div class="product-img-container"><img src="${images[0]}" class="product-img"></div>
-                            <div class="product-title">${title}</div>
-                            <div class="price-box"><span class="curr-price">${price} د.م</span></div>
+                            <div class="stock-warn">⏳ باقي غير عدد محدود فالستوك</div>
+                            <div class="p-img-box"><img src="${images[0]}"></div>
+                            <h3 class="product-title">${title}</h3>
+                            <div class="p-price">199 درهم فقط 🔥 <span class="old-price">299 درهم</span></div>
                             
-                            <div class="direct-form">
+                            <div class="order-form">
                                 <input type="text" placeholder="الاسم الكامل" id="n-${index}">
                                 <input type="tel" placeholder="رقم الهاتف" id="p-${index}">
-                                <input type="text" placeholder="المدينة والعنوان" id="a-${index}">
+                                <input type="text" placeholder="المدينة" id="a-${index}">
                                 <input type="text" placeholder="المقاس (Size)" id="s-${index}">
                             </div>
 
-                            <div class="actions-btn">
-                                <button class="buy-now-btn" onclick="quickOrder(${index}, '${safeTitle}', '${price}')">تأكيد الطلب</button>
-                                <button class="add-cart-btn" onclick="addToCart('${safeTitle}', '${price}', '${images[0]}')"><i class="fas fa-cart-plus"></i></button>
+                            <div style="display:flex; gap:10px;">
+                                <button class="buy-now-btn" onclick="submitDirectOrder(${index}, '${safeTitle}', '199')" style="flex:2; background:var(--success-color); color:white; border:none; padding:15px; border-radius:10px; font-weight:bold; cursor:pointer;">اطلب الآن</button>
+                                <button onclick="addToCart('${safeTitle}', '199', '${images[0]}')" style="flex:1; background:transparent; color:var(--primary-color); border:2px solid var(--primary-color); border-radius:10px; cursor:pointer;"><i class="fas fa-cart-plus"></i></button>
                             </div>
                         </div>
                     `;
                 });
-            } catch (e) { console.error(e); }
+            } catch (e) { console.error("Error fetching sheet:", e); }
         }
 
-        // إرسال الطلب المباشر (Purchase)
-        function quickOrder(idx, title, price) {
+        function submitDirectOrder(idx, title, price) {
             const name = document.getElementById(`n-${idx}`).value;
             const phone = document.getElementById(`p-${idx}`).value;
-            const addr = document.getElementById(`a-${idx}`).value;
+            const city = document.getElementById(`a-${idx}`).value;
             const size = document.getElementById(`s-${idx}`).value;
 
-            if(!name || !phone || !addr) {
-                alert("يرجى ملء المعلومات الأساسية"); return;
+            if(!name || !phone || !city) {
+                alert("يرجى ملء الاسم والهاتف والمدينة"); return;
             }
 
-            // تتبع البيكسل - Meta
-            if(typeof fbq !== 'undefined') fbq('track', 'Purchase', { value: parseFloat(price), currency: 'MAD' });
-            
-            // تتبع البيكسل - TikTok
-            if(typeof ttq !== 'undefined') ttq.track('CompletePayment', { content_name: title, value: parseFloat(price), currency: 'MAD' });
+            // Pixel Tracking
+            if(typeof fbq !== 'undefined') fbq('track', 'Purchase', { value: 199, currency: 'MAD' });
+            if(typeof ttq !== 'undefined') ttq.track('CompletePayment', { content_name: title, value: 199, currency: 'MAD' });
 
-            const msg = `🦁 *طلب جديد (CAN 2025)*%0a%0a` +
+            const msg = `🇲🇦 *طلب جديد من Saih Store*%0a%0a` +
                         `📦 *المنتج:* ${title}%0a` +
-                        `💰 *الثمن:* ${price} د.م%0a` +
-                        `📏 *المقاس:* ${size || '---'}%0a` +
+                        `💰 *الثمن:* ${price} درهم%0a` +
+                        `📏 *المقاس:* ${size || 'غير محدد'}%0a` +
                         `ــــــــــــــــــــــــــــــــــــــــــــ%0a` +
-                        `👤 *الزبون:* ${name}%0a` +
+                        `👤 *الاسم:* ${name}%0a` +
                         `📞 *الهاتف:* ${phone}%0a` +
-                        `📍 *العنوان:* ${addr}%0a` +
+                        `📍 *المدينة:* ${city}%0a` +
                         `ــــــــــــــــــــــــــــــــــــــــــــ%0a` +
-                        `🇲🇦 *ديما مغرب*`;
+                        `✅ الدفع عند الاستلام`;
 
             window.open(`https://wa.me/${MY_PHONE}?text=${msg}`, '_blank');
         }
@@ -305,8 +336,7 @@
             cart.push({ title, price, img });
             localStorage.setItem('myCart', JSON.stringify(cart));
             updateBadge();
-            if(typeof fbq !== 'undefined') fbq('track', 'AddToCart', { content_name: title, value: price, currency: 'MAD' });
-            if(typeof ttq !== 'undefined') ttq.track('AddToCart', { content_name: title, value: price, currency: 'MAD' });
+            if(typeof fbq !== 'undefined') fbq('track', 'AddToCart', { content_name: title, value: 199, currency: 'MAD' });
         }
 
         function updateBadge() { document.getElementById('cartBadge').innerText = cart.length; }
@@ -314,42 +344,21 @@
         function openCart() {
             const list = document.getElementById('cartItemsList');
             let total = 0;
-            list.innerHTML = cart.length ? "" : "<p style='color:white; text-align:center;'>السلة فارغة</p>";
+            list.innerHTML = cart.length ? "" : "<p style='text-align:center; padding:20px; color:white;'>السلة فارغة</p>";
             cart.forEach((item, i) => {
-                total += parseFloat(item.price) || 0;
-                list.innerHTML += `<div style='display:flex; justify-content:space-between; color:white; margin-bottom:10px;'><span>${item.title}</span><b>${item.price} د.م</b></div>`;
+                total += parseFloat(item.price);
+                list.innerHTML += `<div style='display:flex; justify-content:space-between; color:white; margin-bottom:10px; font-size:14px;'><span>${item.title}</span><b>${item.price} درهم</b></div>`;
             });
             document.getElementById('cartTotal').innerText = total;
             document.getElementById('cartModal').style.display = 'flex';
         }
 
         function closeCart() { document.getElementById('cartModal').style.display = 'none'; }
-        
-        function openCartOrderForm() { 
-            if(!cart.length) return;
-            document.getElementById('cartModal').style.display = 'none'; 
-            document.getElementById('cartOrderModal').style.display = 'flex'; 
-        }
-
-        function submitCartOrder(e) {
-            e.preventDefault();
-            const name = document.getElementById('c_name').value;
-            const phone = document.getElementById('c_phone').value;
-            const city = document.getElementById('c_city').value;
-            let products = cart.map(item => `▫️ ${item.title}`).join('%0a');
-            let total = document.getElementById('cartTotal').innerText;
-
-            if(typeof fbq !== 'undefined') fbq('track', 'Purchase', { value: parseFloat(total), currency: 'MAD' });
-            if(typeof ttq !== 'undefined') ttq.track('CompletePayment', { value: parseFloat(total), currency: 'MAD' });
-
-            const msg = `👋 *طلب سلة*%0a${products}%0a💰 *المجموع:* ${total} د.م%0a👤 *الاسم:* ${name}%0a📞 *الهاتف:* ${phone}%0a📍 *العنوان:* ${city}`;
-            window.open(`https://wa.me/${MY_PHONE}?text=${msg}`, '_blank');
-            cart = []; localStorage.setItem('myCart', '[]'); location.reload();
-        }
 
         updateBadge();
         fetchProducts();
     </script>
 </body>
 </html>
+
 
