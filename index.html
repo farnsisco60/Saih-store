@@ -164,12 +164,33 @@
         body[dir="ltr"] .discount-tag { right: auto; left: 12px; }
 
         .product-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; height: 38px; overflow: hidden; line-height: 1.4; color: var(--text-main); }
-        .price-box { display: flex; gap: 8px; align-items: center; margin-bottom: 12px; font-size: 15px; }
+        .price-box { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; font-size: 15px; }
         .curr-price { color: var(--danger-color); font-weight: 900; font-size: 17px; }
         .old-price { text-decoration: line-through; color: var(--text-sub); font-size: 13px; }
 
+        /* مميزات إضافية تحت المنتج */
+        .extra-info {
+            display: flex; justify-content: flex-start; gap: 10px; 
+            margin-bottom: 12px; font-size: 11px; color: var(--success-color); font-weight: 600;
+        }
+        .extra-info span { display: flex; align-items: center; gap: 4px; }
+        .extra-info i { font-size: 12px; }
+
         .actions-btn { display: flex; gap: 8px; }
-        .buy-now-btn { flex: 2; background: var(--primary-color); color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-family: inherit; font-size: 13px; cursor: pointer; }
+        
+        /* زر الشراء مع حركة */
+        .buy-now-btn { 
+            flex: 2; background: var(--primary-color); color: white; border: none; padding: 10px; 
+            border-radius: 8px; font-weight: bold; font-family: inherit; font-size: 13px; cursor: pointer; 
+            animation: pulse-animation 2s infinite;
+        }
+        
+        @keyframes pulse-animation {
+            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+            70% { box-shadow: 0 0 0 6px rgba(59, 130, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        }
+
         .add-cart-btn { flex: 1; background: transparent; color: var(--primary-color); border: 1px solid var(--primary-color); border-radius: 8px; cursor: pointer; font-size: 16px; display: flex; justify-content: center; align-items: center; transition: 0.2s; }
         .add-cart-btn:active { background: var(--primary-color); color: white; }
 
@@ -414,7 +435,7 @@
         const translations = {
             ar: {
                 home: "الرئيسية", products: "المنتجات", cart: "سلة المشتريات", contact: "اتصل بنا", whatsapp: "واتساب",
-                featured_offers: "العروض المميزة", buy_now: "شراء الآن",
+                featured_offers: "العروض المميزة", buy_now: "اضغط للطلب الآن",
                 cart_title: "سلة المشتريات", review_order: "مراجعة المنتجات", empty_cart: "السلة فارغة",
                 total: "المجموع:", currency: "د.م", complete_order: "إتمام الطلب",
                 delivery_info: "معلومات التوصيل", enter_details: "أدخل بياناتك لإتمام الطلب",
@@ -425,11 +446,12 @@
                 msg_hello: "مرحباً", msg_order_cart: "طلب جديد (سلة المشتريات)", msg_order_single: "طلب جديد (شراء سريع)",
                 msg_products: "المنتجات المطلوبة", msg_total: "المجموع الكلي", msg_customer: "معلومات الزبون",
                 msg_name: "الاسم", msg_phone: "الهاتف", msg_city: "المدينة", msg_address: "العنوان", msg_confirm: "يرجى تأكيد الطلب",
-                msg_size: "المقاس", msg_color: "اللون", msg_notes: "ملاحظات"
+                msg_size: "المقاس", msg_color: "اللون", msg_notes: "ملاحظات",
+                pay_on_delivery: "الدفع عند الاستلام", free_shipping: "توصيل مجاني"
             },
             en: {
                 home: "Home", products: "Products", cart: "Cart", contact: "Contact Us", whatsapp: "WhatsApp",
-                featured_offers: "Featured Offers", buy_now: "Buy Now",
+                featured_offers: "Featured Offers", buy_now: "Order Now",
                 cart_title: "Shopping Cart", review_order: "Review your items", empty_cart: "Cart is empty",
                 total: "Total:", currency: "DH", complete_order: "Checkout",
                 delivery_info: "Delivery Info", enter_details: "Enter details to complete order",
@@ -440,7 +462,8 @@
                 msg_hello: "Hello", msg_order_cart: "New Order (Cart)", msg_order_single: "New Order (Quick Buy)",
                 msg_products: "Ordered Products", msg_total: "Total Amount", msg_customer: "Customer Info",
                 msg_name: "Name", msg_phone: "Phone", msg_city: "City", msg_address: "Address", msg_confirm: "Please confirm order",
-                msg_size: "Size", msg_color: "Color", msg_notes: "Notes"
+                msg_size: "Size", msg_color: "Color", msg_notes: "Notes",
+                pay_on_delivery: "Cash on Delivery", free_shipping: "Free Shipping"
             }
         };
 
@@ -545,6 +568,10 @@
                     const safeImg = images[0];
                     const buyBtnText = translations[currentLang].buy_now;
                     const currency = translations[currentLang].currency;
+                    
+                    // نصوص التسهيلات
+                    const txtPay = translations[currentLang].pay_on_delivery;
+                    const txtFree = translations[currentLang].free_shipping;
 
                     let imgControls = '';
                     if (images.length > 1) {
@@ -566,6 +593,13 @@
                                 <span class="curr-price">${price} ${currency}</span>
                                 ${old ? `<span class="old-price">${old}</span>` : ''}
                             </div>
+                            
+                            <!-- معلومات التسهيلات تحت السعر مباشرة -->
+                            <div class="extra-info">
+                                <span><i class="fas fa-hand-holding-usd"></i> ${txtPay}</span>
+                                <span><i class="fas fa-truck"></i> ${txtFree}</span>
+                            </div>
+
                             <div class="actions-btn">
                                 <!-- Pass price to openSingleOrder for accurate pixel tracking -->
                                 <button class="buy-now-btn" onclick="openSingleOrder('${safeTitle}', '${price}')">${buyBtnText}</button>
@@ -783,6 +817,7 @@
     </script>
 </body>
 </html>
+
 
 
 
