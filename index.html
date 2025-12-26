@@ -33,15 +33,16 @@
             --primary-color: #3b82f6;
             --danger-color: #ef4444;
             --success-color: #10b981;
+            --gold-color: #f59e0b;
             
             --bg-color: #000000;
-            --card-bg: #1c1c1e;
-            --input-bg: #2c2c2e;
+            --card-bg: #18181b; /* لون أغمق قليلاً للبطاقة */
+            --input-bg: #27272a;
             
             --text-main: #ffffff;
             --text-sub: #a1a1aa;
             
-            --border-color: #333333;
+            --border-color: #3f3f46;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; outline: none; -webkit-tap-highlight-color: transparent; }
@@ -135,15 +136,16 @@
         .section-title { text-align: center; margin: 40px 0 30px; font-size: 26px; font-weight: 800; color: var(--text-main); }
         .section-title::after { content: ""; display: block; width: 60px; height: 4px; background: var(--danger-color); margin: 10px auto 0; border-radius: 2px; }
         
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 15px; padding: 0 15px; max-width: 1200px; margin: 0 auto; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 0 15px; max-width: 1200px; margin: 0 auto; }
         
         /* البطاقة الاحترافية الداكنة */
         .product-card { 
             background: var(--card-bg); 
-            border-radius: 16px; padding: 12px; position: relative; 
-            display: flex; flex-direction: column; justify-content: space-between; 
+            border-radius: 16px; padding: 15px; position: relative; 
+            display: flex; flex-direction: column; 
             transition: transform 0.2s; 
-            border: 1px solid var(--border-color); 
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         
         .product-img-container { position: relative; width: 100%; aspect-ratio: 1/1; margin-bottom: 12px; border-radius: 12px; overflow: hidden; background: #fff; }
@@ -163,36 +165,60 @@
         .discount-tag { position: absolute; top: 12px; right: 12px; background: var(--danger-color); color: white; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: bold; z-index: 2; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
         body[dir="ltr"] .discount-tag { right: auto; left: 12px; }
 
-        .product-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; height: 38px; overflow: hidden; line-height: 1.4; color: var(--text-main); }
-        .price-box { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; font-size: 15px; }
-        .curr-price { color: var(--danger-color); font-weight: 900; font-size: 17px; }
-        .old-price { text-decoration: line-through; color: var(--text-sub); font-size: 13px; }
-
-        /* مميزات إضافية تحت المنتج */
-        .extra-info {
-            display: flex; justify-content: flex-start; gap: 10px; 
-            margin-bottom: 12px; font-size: 11px; color: var(--success-color); font-weight: 600;
-        }
-        .extra-info span { display: flex; align-items: center; gap: 4px; }
-        .extra-info i { font-size: 12px; }
-
-        .actions-btn { display: flex; gap: 8px; }
+        .product-title { font-size: 16px; font-weight: 800; margin-bottom: 5px; line-height: 1.4; color: var(--text-main); }
         
-        /* زر الشراء مع حركة */
-        .buy-now-btn { 
-            flex: 2; background: var(--primary-color); color: white; border: none; padding: 10px; 
-            border-radius: 8px; font-weight: bold; font-family: inherit; font-size: 13px; cursor: pointer; 
+        .rating-stars { color: var(--gold-color); font-size: 12px; margin-bottom: 8px; display: flex; align-items: center; gap: 5px; }
+        .rating-text { color: var(--text-sub); font-size: 10px; }
+
+        .price-box { display: flex; gap: 10px; align-items: center; margin-bottom: 15px; font-size: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
+        .curr-price { color: var(--primary-color); font-weight: 900; font-size: 20px; }
+        .old-price { text-decoration: line-through; color: var(--text-sub); font-size: 14px; }
+
+        /* --- استمارة الطلب المدمجة والاحترافية --- */
+        .direct-form-container {
+            background: #202023;
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px dashed var(--border-color);
+        }
+        .form-header-small {
+            font-size: 11px; color: var(--success-color); margin-bottom: 8px; font-weight: bold;
+            display: flex; align-items: center; gap: 5px;
+        }
+        
+        .direct-input {
+            width: 100%; margin-bottom: 10px; padding: 12px;
+            background: var(--input-bg); border: 1px solid var(--border-color);
+            color: white; border-radius: 8px; font-size: 13px; font-family: inherit;
+            transition: 0.3s;
+        }
+        .direct-input:focus { border-color: var(--primary-color); background: #2f2f32; }
+        
+        .confirm-btn {
+            width: 100%; padding: 14px; background: var(--primary-color);
+            color: white; border: none; border-radius: 10px; font-weight: 800; font-size: 14px;
+            cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px;
+            margin-top: 5px;
             animation: pulse-animation 2s infinite;
         }
         
         @keyframes pulse-animation {
             0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
-            70% { box-shadow: 0 0 0 6px rgba(59, 130, 246, 0); }
+            70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
             100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
         }
 
-        .add-cart-btn { flex: 1; background: transparent; color: var(--primary-color); border: 1px solid var(--primary-color); border-radius: 8px; cursor: pointer; font-size: 16px; display: flex; justify-content: center; align-items: center; transition: 0.2s; }
-        .add-cart-btn:active { background: var(--primary-color); color: white; }
+        .trust-badge {
+            margin-top: 10px; text-align: center; font-size: 10px; color: var(--text-sub);
+            display: flex; justify-content: center; gap: 15px;
+        }
+        .trust-badge span { display: flex; align-items: center; gap: 4px; }
+
+        /* زر الإضافة للسلة الصغير */
+        .cart-mini-btn {
+            text-align: center; margin-top: 8px; font-size: 12px; 
+            color: var(--text-sub); cursor: pointer; text-decoration: underline;
+        }
 
         /* --- الفوتر --- */
         .mobile-bottom-nav { 
@@ -213,8 +239,6 @@
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 3000; justify-content: center; align-items: center; backdrop-filter: blur(8px); }
         .modal-content { background: var(--card-bg); width: 90%; max-width: 420px; padding: 25px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); position: relative; animation: slideUp 0.3s ease; max-height: 90vh; overflow-y: auto; border: 1px solid var(--border-color); }
         
-        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
         .modal-header-clean { text-align: center; margin-bottom: 25px; }
         .modal-header-clean h3 { font-size: 20px; font-weight: 800; color: var(--text-main); margin-bottom: 5px; }
         .modal-header-clean p { font-size: 14px; color: var(--primary-color); font-weight: 600; }
@@ -229,9 +253,6 @@
         }
         .form-input:focus { border-color: var(--primary-color); background: #3a3a3c; }
         
-        .form-row { display: flex; gap: 10px; }
-        .form-row .form-group { flex: 1; }
-
         .submit-btn { 
             width: 100%; padding: 15px; 
             background: var(--success-color); color: white; 
@@ -273,13 +294,13 @@
             .mobile-menu-btn { display: block; } 
             .mobile-bottom-nav { display: flex; } 
             .nav-links-desktop { display: none; }
+            .products-grid { grid-template-columns: 1fr; } /* بطاقة واحدة في السطر للموبايل */
         }
 
         /* --- تحسين العرض على الحاسوب والتلفاز --- */
         @media (min-width: 769px) {
             .products-grid {
-                /* جعل البطاقات أكبر واستغلال العرض الكامل */
-                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
                 max-width: 95%; 
             }
             .header-container {
@@ -317,7 +338,6 @@
             <a href="#" onclick="toggleSidebar()"><i class="fas fa-home"></i> <span data-i18n="home">الرئيسية</span></a>
             <a href="#products" onclick="toggleSidebar()"><i class="fas fa-th-large"></i> <span data-i18n="products">المنتجات</span></a>
             <a href="#" onclick="openCart(); toggleSidebar()"><i class="fas fa-shopping-cart"></i> <span data-i18n="cart">سلة المشتريات</span></a>
-            <!-- إضافة حدث تتبع الاتصال هنا -->
             <a href="https://wa.me/212695050162" onclick="fbq('track', 'Contact'); toggleSidebar()"><i class="fab fa-whatsapp"></i> <span data-i18n="contact">اتصل بنا</span></a>
             <div class="lang-divider" data-i18n="language">اللغة / Language</div>
             <div class="lang-option" onclick="selectLanguage('ar'); toggleSidebar()"><img src="https://flagcdn.com/w20/ma.png"> العربية</div>
@@ -359,7 +379,6 @@
         <div class="nav-item" onclick="fbq('track', 'Contact'); window.location.href='https://wa.me/212695050162'"><i class="fab fa-whatsapp"></i> <span data-i18n="whatsapp">واتساب</span></div>
     </div>
 
-    <!-- إضافة حدث تتبع الاتصال للزر العائم -->
     <a href="https://wa.me/212695050162" onclick="fbq('track', 'Contact')" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
     <!-- نافذة السلة -->
@@ -400,34 +419,6 @@
         </div>
     </div>
 
-    <!-- نافذة الشراء المباشر (مع اللون والمقاس) -->
-    <div class="modal-overlay" id="singleOrderModal">
-        <div class="modal-content">
-            <i class="fas fa-times close-modal-icon" onclick="document.getElementById('singleOrderModal').style.display='none'"></i>
-            <div class="modal-header-clean">
-                <h3 data-i18n="quick_buy">شراء سريع</h3>
-                <p id="singleProductName">اسم المنتج</p>
-            </div>
-            <form onsubmit="submitSingleOrder(event)">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label" data-i18n="size">المقاس</label>
-                        <input type="text" id="s_size" class="form-input" placeholder="L, XL, 42...">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" data-i18n="color">اللون</label>
-                        <input type="text" id="s_color" class="form-input" placeholder="أحمر, أسود...">
-                    </div>
-                </div>
-                <div class="form-group"><label class="form-label" data-i18n="full_name">الاسم الكامل</label><input type="text" id="s_name" class="form-input" required></div>
-                <div class="form-group"><label class="form-label" data-i18n="phone">رقم الهاتف</label><input type="tel" id="s_phone" class="form-input" required></div>
-                <div class="form-group"><label class="form-label" data-i18n="city">المدينة</label><input type="text" id="s_city" class="form-input" required></div>
-                <div class="form-group"><label class="form-label" data-i18n="address">العنوان بالتفصيل</label><input type="text" id="s_address" class="form-input" required></div>
-                <button type="submit" class="submit-btn"><span data-i18n="send_order">إرسال الطلب الآن</span> <i class="fab fa-whatsapp"></i></button>
-            </form>
-        </div>
-    </div>
-
     <script>
         const SHEET_URL = "https://docs.google.com/spreadsheets/d/1RmpZOJkkQTvYLPXNUxBxHkuNcqoiFn1z5Y0ZbQyx3vk/edit?usp=drivesdk"; 
         const MY_PHONE = "212695050162"; 
@@ -435,35 +426,43 @@
         const translations = {
             ar: {
                 home: "الرئيسية", products: "المنتجات", cart: "سلة المشتريات", contact: "اتصل بنا", whatsapp: "واتساب",
-                featured_offers: "العروض المميزة", buy_now: "اضغط للطلب الآن",
+                featured_offers: "العروض المميزة", buy_now: "تأكيد الطلب",
                 cart_title: "سلة المشتريات", review_order: "مراجعة المنتجات", empty_cart: "السلة فارغة",
                 total: "المجموع:", currency: "د.م", complete_order: "إتمام الطلب",
                 delivery_info: "معلومات التوصيل", enter_details: "أدخل بياناتك لإتمام الطلب",
                 full_name: "الاسم الكامل", phone: "رقم الهاتف", city: "المدينة", address: "العنوان بالتفصيل",
                 confirm_whatsapp: "تأكيد الطلب عبر واتساب", language: "اللغة / Language",
-                quick_buy: "شراء سريع", send_order: "إرسال الطلب الآن",
-                size: "المقاس (اختياري)", color: "اللون (اختياري)", notes: "ملاحظات إضافية",
-                msg_hello: "مرحباً", msg_order_cart: "طلب جديد (سلة المشتريات)", msg_order_single: "طلب جديد (شراء سريع)",
+                quick_buy: "شراء سريع", send_order: "أرسل الطلب الآن (الدفع عند الاستلام)",
+                size: "المقاس", color: "اللون", notes: "ملاحظات إضافية",
+                msg_hello: "مرحباً", msg_order_cart: "طلب جديد (سلة المشتريات)", msg_order_single: "طلب جديد (شراء مباشر)",
                 msg_products: "المنتجات المطلوبة", msg_total: "المجموع الكلي", msg_customer: "معلومات الزبون",
                 msg_name: "الاسم", msg_phone: "الهاتف", msg_city: "المدينة", msg_address: "العنوان", msg_confirm: "يرجى تأكيد الطلب",
                 msg_size: "المقاس", msg_color: "اللون", msg_notes: "ملاحظات",
-                pay_on_delivery: "الدفع عند الاستلام", free_shipping: "توصيل مجاني"
+                pay_on_delivery: "الدفع عند الاستلام", free_shipping: "توصيل مجاني",
+                plh_name: "الاسم لاستلام الطلب", plh_phone: "رقم هاتفك للتواصل", plh_city: "المدينة",
+                fill_info: "أدخل معلوماتك هنا للطلب السريع:",
+                add_to_cart_text: "أضف للسلة للمتابعة لاحقاً",
+                reviews_text: "(142 طلب هذا الأسبوع)"
             },
             en: {
                 home: "Home", products: "Products", cart: "Cart", contact: "Contact Us", whatsapp: "WhatsApp",
-                featured_offers: "Featured Offers", buy_now: "Order Now",
+                featured_offers: "Featured Offers", buy_now: "Confirm Order",
                 cart_title: "Shopping Cart", review_order: "Review your items", empty_cart: "Cart is empty",
                 total: "Total:", currency: "DH", complete_order: "Checkout",
                 delivery_info: "Delivery Info", enter_details: "Enter details to complete order",
                 full_name: "Full Name", phone: "Phone Number", city: "City", address: "Detailed Address",
                 confirm_whatsapp: "Confirm via WhatsApp", language: "Language",
-                quick_buy: "Quick Buy", send_order: "Order Now",
-                size: "Size (Optional)", color: "Color (Optional)", notes: "Additional Notes",
-                msg_hello: "Hello", msg_order_cart: "New Order (Cart)", msg_order_single: "New Order (Quick Buy)",
+                quick_buy: "Quick Buy", send_order: "Order Now (Cash on Delivery)",
+                size: "Size", color: "Color", notes: "Additional Notes",
+                msg_hello: "Hello", msg_order_cart: "New Order (Cart)", msg_order_single: "New Order (Direct Buy)",
                 msg_products: "Ordered Products", msg_total: "Total Amount", msg_customer: "Customer Info",
                 msg_name: "Name", msg_phone: "Phone", msg_city: "City", msg_address: "Address", msg_confirm: "Please confirm order",
                 msg_size: "Size", msg_color: "Color", msg_notes: "Notes",
-                pay_on_delivery: "Cash on Delivery", free_shipping: "Free Shipping"
+                pay_on_delivery: "Cash on Delivery", free_shipping: "Free Shipping",
+                plh_name: "Full Name for Delivery", plh_phone: "Phone Number", plh_city: "City",
+                fill_info: "Enter your info for quick order:",
+                add_to_cart_text: "Add to cart to continue later",
+                reviews_text: "(142 orders this week)"
             }
         };
 
@@ -512,8 +511,6 @@
             currentZoomImgIdx = imgIdx;
             updateZoomImage();
             document.getElementById('zoomModal').style.display = 'flex';
-            
-            // --- PIXEL: ViewContent ---
             if(typeof fbq !== 'undefined') fbq('track', 'ViewContent');
         }
 
@@ -566,12 +563,8 @@
 
                     const safeTitle = title.replace(/'/g, "\\'"); 
                     const safeImg = images[0];
-                    const buyBtnText = translations[currentLang].buy_now;
                     const currency = translations[currentLang].currency;
-                    
-                    // نصوص التسهيلات
-                    const txtPay = translations[currentLang].pay_on_delivery;
-                    const txtFree = translations[currentLang].free_shipping;
+                    const t = translations[currentLang];
 
                     let imgControls = '';
                     if (images.length > 1) {
@@ -581,6 +574,21 @@
                         `;
                     }
 
+                    // --- بناء الاستمارة المدمجة (ظاهرة دائماً) ---
+                    const directFormHTML = `
+                        <div class="direct-form-container">
+                            <div class="form-header-small">
+                                <i class="fas fa-edit"></i> ${t.fill_info}
+                            </div>
+                            <input type="text" id="d_name_${index}" class="direct-input" placeholder="${t.plh_name}">
+                            <input type="tel" id="d_phone_${index}" class="direct-input" placeholder="${t.plh_phone} *">
+                            <input type="text" id="d_city_${index}" class="direct-input" placeholder="${t.plh_city}">
+                            <button class="confirm-btn" onclick="submitDirectOrder(${index}, '${safeTitle}', '${price}')">
+                                ${t.send_order} <i class="fas fa-check-circle"></i>
+                            </button>
+                        </div>
+                    `;
+
                     const html = `
                         <div class="product-card">
                             ${disc ? `<div class="discount-tag">${disc}</div>` : ''}
@@ -588,22 +596,30 @@
                                 ${imgControls}
                                 <img src="${images[0]}" class="product-img" id="img-${index}" data-idx="0" onclick="openZoom(${index}, 0)" onerror="this.src='https://via.placeholder.com/150'">
                             </div>
+                            
+                            <!-- التقييم والآراء -->
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="rating-text">${t.reviews_text}</span>
+                            </div>
+
                             <div class="product-title">${title}</div>
+                            
                             <div class="price-box">
                                 <span class="curr-price">${price} ${currency}</span>
                                 ${old ? `<span class="old-price">${old}</span>` : ''}
                             </div>
                             
-                            <!-- معلومات التسهيلات تحت السعر مباشرة -->
-                            <div class="extra-info">
-                                <span><i class="fas fa-hand-holding-usd"></i> ${txtPay}</span>
-                                <span><i class="fas fa-truck"></i> ${txtFree}</span>
+                            <!-- الاستمارة مباشرة في الواجهة -->
+                            ${directFormHTML}
+
+                            <div class="trust-badge">
+                                <span><i class="fas fa-shipping-fast"></i> ${t.free_shipping}</span>
+                                <span><i class="fas fa-hand-holding-usd"></i> ${t.pay_on_delivery}</span>
                             </div>
 
-                            <div class="actions-btn">
-                                <!-- Pass price to openSingleOrder for accurate pixel tracking -->
-                                <button class="buy-now-btn" onclick="openSingleOrder('${safeTitle}', '${price}')">${buyBtnText}</button>
-                                <button class="add-cart-btn" onclick="addToCart('${safeTitle}', '${price}', '${safeImg}')"><i class="fas fa-cart-plus"></i></button>
+                            <div class="cart-mini-btn" onclick="addToCart('${safeTitle}', '${price}', '${safeImg}')">
+                                <i class="fas fa-cart-plus"></i> ${t.add_to_cart_text}
                             </div>
                         </div>
                     `;
@@ -612,6 +628,39 @@
             } catch (e) {
                 console.log(e);
             }
+        }
+
+        // دالة إرسال الطلب مباشرة من داخل البطاقة
+        function submitDirectOrder(index, title, price) {
+            const t = translations[currentLang];
+            const name = document.getElementById(`d_name_${index}`).value;
+            const phone = document.getElementById(`d_phone_${index}`).value;
+            const city = document.getElementById(`d_city_${index}`).value;
+
+            if(!phone) {
+                alert(currentLang === 'ar' ? "المرجو إدخال رقم الهاتف" : "Please enter phone number");
+                return;
+            }
+
+            const msg = `👋 *${t.msg_hello}, ${t.msg_order_single}* %0a%0a` +
+                        `📦 *${t.products}:* ${title}%0a` +
+                        `ــــــــــــــــــــــــــــــــــــــــــــ%0a` +
+                        `👤 *${t.msg_customer}:*%0a` +
+                        `▪️ *${t.msg_name}:* ${name}%0a` +
+                        `▪️ *${t.msg_phone}:* ${phone}%0a` +
+                        `▪️ *${t.msg_city}:* ${city}%0a` +
+                        `ــــــــــــــــــــــــــــــــــــــــــــ%0a` +
+                        `🚚 ${t.msg_confirm}.`;
+
+            if(typeof fbq !== 'undefined') {
+                fbq('track', 'Purchase', {
+                    content_name: title,
+                    value: parseFloat(price) || 0,
+                    currency: 'MAD'
+                });
+            }
+
+            window.open(`https://wa.me/${MY_PHONE}?text=${msg}`, '_blank');
         }
 
         function changeImage(productIndex, direction) {
@@ -632,7 +681,6 @@
             cart.push({ title: title, price: price, img: img });
             saveCart();
 
-            // --- PIXEL: AddToCart ---
             if(typeof fbq !== 'undefined') {
                 fbq('track', 'AddToCart', {
                     content_name: title,
@@ -641,16 +689,8 @@
                 });
             }
             
-            const btn = event.currentTarget;
-            const originalHTML = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-check"></i>';
-            btn.style.background = '#28a745';
-            btn.style.color = 'white';
-            setTimeout(() => {
-                btn.innerHTML = originalHTML;
-                btn.style.background = 'transparent';
-                btn.style.color = 'var(--primary-color)';
-            }, 1000);
+            alert(currentLang === 'ar' ? "تمت الإضافة للسلة" : "Added to Cart");
+            openCart();
         }
 
         function saveCart() {
@@ -708,8 +748,6 @@
             if(cart.length === 0) return alert(translations[currentLang].empty_cart);
             document.getElementById('cartModal').style.display = 'none';
             document.getElementById('cartOrderModal').style.display = 'flex';
-            
-            // --- PIXEL: InitiateCheckout ---
             if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
         }
 
@@ -746,8 +784,6 @@
                         `ــــــــــــــــــــــــــــــــــــــــــــ%0a` +
                         `🚚 ${t.msg_confirm}.`;
             
-            // --- PIXEL: Purchase (Cart) ---
-            // Updated with dynamic value
             if(typeof fbq !== 'undefined') {
                 fbq('track', 'Purchase', {
                     value: total,
@@ -762,61 +798,11 @@
             saveCart();
         }
 
-        let currentProduct = "";
-        let currentSinglePrice = 0; // Variable to store price for pixel
-
-        function openSingleOrder(title, price) {
-            currentProduct = title;
-            currentSinglePrice = price; // Store price
-            document.getElementById('singleProductName').innerText = title;
-            document.getElementById('singleOrderModal').style.display = 'flex';
-            
-            // --- PIXEL: InitiateCheckout ---
-            if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
-        }
-
-        function submitSingleOrder(e) {
-            e.preventDefault();
-            const t = translations[currentLang];
-            const name = document.getElementById('s_name').value;
-            const phone = document.getElementById('s_phone').value;
-            const city = document.getElementById('s_city').value;
-            const address = document.getElementById('s_address').value;
-            const size = document.getElementById('s_size').value;
-            const color = document.getElementById('s_color').value;
-            let variants = "";
-            if(size) variants += `📏 *${t.msg_size}:* ${size}%0a`;
-            if(color) variants += `🎨 *${t.msg_color}:* ${color}%0a`;
-            const msg = `👋 *${t.msg_hello}, ${t.msg_order_single}* %0a%0a` +
-                        `📦 *${t.products}:* ${currentProduct}%0a` +
-                        `${variants}` +
-                        `ــــــــــــــــــــــــــــــــــــــــــــ%0a` +
-                        `👤 *${t.msg_customer}:*%0a` +
-                        `▪️ *${t.msg_name}:* ${name}%0a` +
-                        `▪️ *${t.msg_phone}:* ${phone}%0a` +
-                        `▪️ *${t.msg_city}:* ${city}%0a` +
-                        `▪️ *${t.msg_address}:* ${address}%0a` +
-                        `ــــــــــــــــــــــــــــــــــــــــــــ%0a` +
-                        `🚚 ${t.msg_confirm}.`;
-
-            // --- PIXEL: Purchase (Single) ---
-            // Updated with dynamic value from button click
-            if(typeof fbq !== 'undefined') {
-                fbq('track', 'Purchase', {
-                    content_name: currentProduct,
-                    value: parseFloat(currentSinglePrice) || 0,
-                    currency: 'MAD'
-                });
-            }
-
-            window.open(`https://wa.me/${MY_PHONE}?text=${msg}`, '_blank');
-            document.getElementById('singleOrderModal').style.display = 'none';
-        }
-
         updateCartBadge();
     </script>
 </body>
 </html>
+
 
 
 
