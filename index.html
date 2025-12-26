@@ -30,13 +30,13 @@
     <style>
         /* --- الألوان الاحترافية (Dark Premium Theme) --- */
         :root { 
-            --primary-color: #3b82f6;
+            --primary-color: #3b82f6; /* أزرق احترافي */
             --danger-color: #ef4444;
             --success-color: #10b981;
-            --gold-color: #f59e0b;
+            --gold-color: #fbbf24;
             
             --bg-color: #000000;
-            --card-bg: #18181b; /* لون أغمق قليلاً للبطاقة */
+            --card-bg: #18181b; 
             --input-bg: #27272a;
             
             --text-main: #ffffff;
@@ -131,14 +131,34 @@
         .lang-option:hover { color: var(--primary-color); }
         .lang-option img { width: 20px; }
 
-        /* --- السلايدر والمنتجات --- */
-        .hero-slider { margin-bottom: 30px; border-radius: 0 0 20px 20px; overflow: hidden; }
+        /* --- السلايدر والترحيب (Banner) --- */
+        .hero-slider { 
+            margin-bottom: 30px; border-radius: 0 0 25px 25px; overflow: hidden; 
+            position: relative; height: 250px; /* ارتفاع ثابت للبانر */
+        }
+        .hero-slider img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            filter: brightness(0.6); /* تعتيم بسيط للصورة ليظهر النص */
+        }
+        .hero-text {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            text-align: center; width: 90%; z-index: 2;
+        }
+        .hero-text h1 { 
+            font-size: 28px; font-weight: 900; color: white; margin-bottom: 10px; 
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8); letter-spacing: 1px;
+        }
+        .hero-text p { 
+            font-size: 14px; font-weight: 600; color: #f3f4f6; 
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+        }
+
         .section-title { text-align: center; margin: 40px 0 30px; font-size: 26px; font-weight: 800; color: var(--text-main); }
         .section-title::after { content: ""; display: block; width: 60px; height: 4px; background: var(--danger-color); margin: 10px auto 0; border-radius: 2px; }
         
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 0 15px; max-width: 1200px; margin: 0 auto; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; padding: 0 15px; max-width: 1200px; margin: 0 auto; }
         
-        /* البطاقة الاحترافية الداكنة */
+        /* --- بطاقة المنتج الاحترافية --- */
         .product-card { 
             background: var(--card-bg); 
             border-radius: 16px; padding: 15px; position: relative; 
@@ -165,10 +185,13 @@
         .discount-tag { position: absolute; top: 12px; right: 12px; background: var(--danger-color); color: white; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: bold; z-index: 2; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
         body[dir="ltr"] .discount-tag { right: auto; left: 12px; }
 
+        /* نصوص المنتج */
         .product-title { font-size: 16px; font-weight: 800; margin-bottom: 5px; line-height: 1.4; color: var(--text-main); }
         
-        .rating-stars { color: var(--gold-color); font-size: 12px; margin-bottom: 8px; display: flex; align-items: center; gap: 5px; }
-        .rating-text { color: var(--text-sub); font-size: 10px; }
+        /* التقييمات */
+        .social-proof { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 11px; color: var(--text-sub); }
+        .stars { color: var(--gold-color); }
+        .orders-count { background: rgba(16, 185, 129, 0.15); color: var(--success-color); padding: 2px 6px; border-radius: 4px; font-weight: bold; }
 
         .price-box { display: flex; gap: 10px; align-items: center; margin-bottom: 15px; font-size: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
         .curr-price { color: var(--primary-color); font-weight: 900; font-size: 20px; }
@@ -177,14 +200,16 @@
         /* --- استمارة الطلب المدمجة والاحترافية --- */
         .direct-form-container {
             background: #202023;
-            padding: 10px;
+            padding: 12px;
             border-radius: 12px;
             border: 1px dashed var(--border-color);
+            margin-top: 5px;
         }
         .form-header-small {
-            font-size: 11px; color: var(--success-color); margin-bottom: 8px; font-weight: bold;
+            font-size: 12px; color: var(--text-main); margin-bottom: 10px; font-weight: bold;
             display: flex; align-items: center; gap: 5px;
         }
+        .form-header-small i { color: var(--success-color); }
         
         .direct-input {
             width: 100%; margin-bottom: 10px; padding: 12px;
@@ -195,28 +220,29 @@
         .direct-input:focus { border-color: var(--primary-color); background: #2f2f32; }
         
         .confirm-btn {
-            width: 100%; padding: 14px; background: var(--primary-color);
-            color: white; border: none; border-radius: 10px; font-weight: 800; font-size: 14px;
+            width: 100%; padding: 14px; background: var(--success-color); /* أخضر للطلب */
+            color: white; border: none; border-radius: 10px; font-weight: 800; font-size: 15px;
             cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px;
             margin-top: 5px;
             animation: pulse-animation 2s infinite;
         }
         
         @keyframes pulse-animation {
-            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
         .trust-badge {
-            margin-top: 10px; text-align: center; font-size: 10px; color: var(--text-sub);
+            margin-top: 12px; text-align: center; font-size: 10px; color: var(--text-sub);
             display: flex; justify-content: center; gap: 15px;
         }
-        .trust-badge span { display: flex; align-items: center; gap: 4px; }
+        .trust-badge span { display: flex; align-items: center; gap: 4px; color: var(--text-sub); }
+        .trust-badge i { color: var(--primary-color); }
 
         /* زر الإضافة للسلة الصغير */
         .cart-mini-btn {
-            text-align: center; margin-top: 8px; font-size: 12px; 
+            text-align: center; margin-top: 10px; font-size: 12px; 
             color: var(--text-sub); cursor: pointer; text-decoration: underline;
         }
 
@@ -295,12 +321,13 @@
             .mobile-bottom-nav { display: flex; } 
             .nav-links-desktop { display: none; }
             .products-grid { grid-template-columns: 1fr; } /* بطاقة واحدة في السطر للموبايل */
+            .hero-slider { height: 200px; }
         }
 
         /* --- تحسين العرض على الحاسوب والتلفاز --- */
         @media (min-width: 769px) {
             .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
                 max-width: 95%; 
             }
             .header-container {
@@ -362,7 +389,14 @@
         </div>
     </header>
 
-    <div class="hero-slider"><img src="https://i.postimg.cc/VvFWP3Vq/1764285865239.png" style="width:100%;"></div>
+    <!-- البانر الجديد مع نصوص ترحيبية -->
+    <div class="hero-slider">
+        <img src="https://i.postimg.cc/sxbF5Y14/Screenshot-2025-11-19-22-14-44-58-40deb401b9ffe8e1df2f1cc5ba480b12.jpg" alt="Hero">
+        <div class="hero-text">
+            <h1 data-i18n="hero_title">Saih Store</h1>
+            <p data-i18n="hero_sub">الجودة الممتازة بأفضل الأسعار - اطلب الآن</p>
+        </div>
+    </div>
 
     <div id="products">
         <div class="section-title" data-i18n="featured_offers">العروض المميزة</div>
@@ -427,26 +461,29 @@
             ar: {
                 home: "الرئيسية", products: "المنتجات", cart: "سلة المشتريات", contact: "اتصل بنا", whatsapp: "واتساب",
                 featured_offers: "العروض المميزة", buy_now: "تأكيد الطلب",
+                hero_title: "Saih Store", hero_sub: "الجودة الممتازة بأفضل الأسعار - اطلب الآن",
                 cart_title: "سلة المشتريات", review_order: "مراجعة المنتجات", empty_cart: "السلة فارغة",
                 total: "المجموع:", currency: "د.م", complete_order: "إتمام الطلب",
                 delivery_info: "معلومات التوصيل", enter_details: "أدخل بياناتك لإتمام الطلب",
                 full_name: "الاسم الكامل", phone: "رقم الهاتف", city: "المدينة", address: "العنوان بالتفصيل",
                 confirm_whatsapp: "تأكيد الطلب عبر واتساب", language: "اللغة / Language",
-                quick_buy: "شراء سريع", send_order: "أرسل الطلب الآن (الدفع عند الاستلام)",
-                size: "المقاس", color: "اللون", notes: "ملاحظات إضافية",
+                quick_buy: "شراء سريع", send_order: "اطلب الآن (الدفع عند الاستلام)",
+                size: "القياس", color: "اللون", notes: "ملاحظات إضافية",
                 msg_hello: "مرحباً", msg_order_cart: "طلب جديد (سلة المشتريات)", msg_order_single: "طلب جديد (شراء مباشر)",
                 msg_products: "المنتجات المطلوبة", msg_total: "المجموع الكلي", msg_customer: "معلومات الزبون",
                 msg_name: "الاسم", msg_phone: "الهاتف", msg_city: "المدينة", msg_address: "العنوان", msg_confirm: "يرجى تأكيد الطلب",
-                msg_size: "المقاس", msg_color: "اللون", msg_notes: "ملاحظات",
+                msg_size: "القياس", msg_color: "اللون", msg_notes: "ملاحظات",
                 pay_on_delivery: "الدفع عند الاستلام", free_shipping: "توصيل مجاني",
-                plh_name: "الاسم لاستلام الطلب", plh_phone: "رقم هاتفك للتواصل", plh_city: "المدينة",
-                fill_info: "أدخل معلوماتك هنا للطلب السريع:",
+                plh_name: "الاسم لاستلام الطلب", plh_phone: "رقم هاتفك للتواصل", plh_city: "المدينة", plh_size: "القياس (S, M, L, 42...)",
+                fill_info: "سارع بالطلب - الكمية محدودة:",
                 add_to_cart_text: "أضف للسلة للمتابعة لاحقاً",
-                reviews_text: "(142 طلب هذا الأسبوع)"
+                reviews_text: "تم طلب هذا المنتج 142 مرة",
+                trusted: "موثوق 100%"
             },
             en: {
                 home: "Home", products: "Products", cart: "Cart", contact: "Contact Us", whatsapp: "WhatsApp",
                 featured_offers: "Featured Offers", buy_now: "Confirm Order",
+                hero_title: "Saih Store", hero_sub: "Premium Quality, Best Prices - Order Now",
                 cart_title: "Shopping Cart", review_order: "Review your items", empty_cart: "Cart is empty",
                 total: "Total:", currency: "DH", complete_order: "Checkout",
                 delivery_info: "Delivery Info", enter_details: "Enter details to complete order",
@@ -459,10 +496,11 @@
                 msg_name: "Name", msg_phone: "Phone", msg_city: "City", msg_address: "Address", msg_confirm: "Please confirm order",
                 msg_size: "Size", msg_color: "Color", msg_notes: "Notes",
                 pay_on_delivery: "Cash on Delivery", free_shipping: "Free Shipping",
-                plh_name: "Full Name for Delivery", plh_phone: "Phone Number", plh_city: "City",
-                fill_info: "Enter your info for quick order:",
+                plh_name: "Full Name for Delivery", plh_phone: "Phone Number", plh_city: "City", plh_size: "Size (S, M, L, 42...)",
+                fill_info: "Quick Order - Limited Stock:",
                 add_to_cart_text: "Add to cart to continue later",
-                reviews_text: "(142 orders this week)"
+                reviews_text: "Ordered 142 times this week",
+                trusted: "100% Trusted"
             }
         };
 
@@ -574,15 +612,18 @@
                         `;
                     }
 
-                    // --- بناء الاستمارة المدمجة (ظاهرة دائماً) ---
+                    // --- بناء الاستمارة المدمجة (مع خانة القياس) ---
                     const directFormHTML = `
                         <div class="direct-form-container">
                             <div class="form-header-small">
-                                <i class="fas fa-edit"></i> ${t.fill_info}
+                                <i class="fas fa-fire"></i> ${t.fill_info}
                             </div>
                             <input type="text" id="d_name_${index}" class="direct-input" placeholder="${t.plh_name}">
                             <input type="tel" id="d_phone_${index}" class="direct-input" placeholder="${t.plh_phone} *">
                             <input type="text" id="d_city_${index}" class="direct-input" placeholder="${t.plh_city}">
+                            <!-- خانة القياس -->
+                            <input type="text" id="d_size_${index}" class="direct-input" placeholder="${t.plh_size}">
+                            
                             <button class="confirm-btn" onclick="submitDirectOrder(${index}, '${safeTitle}', '${price}')">
                                 ${t.send_order} <i class="fas fa-check-circle"></i>
                             </button>
@@ -597,10 +638,10 @@
                                 <img src="${images[0]}" class="product-img" id="img-${index}" data-idx="0" onclick="openZoom(${index}, 0)" onerror="this.src='https://via.placeholder.com/150'">
                             </div>
                             
-                            <!-- التقييم والآراء -->
-                            <div class="rating-stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="rating-text">${t.reviews_text}</span>
+                            <!-- التقييم والآراء (Social Proof) -->
+                            <div class="social-proof">
+                                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <div class="orders-count">${t.reviews_text}</div>
                             </div>
 
                             <div class="product-title">${title}</div>
@@ -614,8 +655,8 @@
                             ${directFormHTML}
 
                             <div class="trust-badge">
+                                <span><i class="fas fa-shield-alt"></i> ${t.trusted}</span>
                                 <span><i class="fas fa-shipping-fast"></i> ${t.free_shipping}</span>
-                                <span><i class="fas fa-hand-holding-usd"></i> ${t.pay_on_delivery}</span>
                             </div>
 
                             <div class="cart-mini-btn" onclick="addToCart('${safeTitle}', '${price}', '${safeImg}')">
@@ -630,20 +671,24 @@
             }
         }
 
-        // دالة إرسال الطلب مباشرة من داخل البطاقة
+        // دالة إرسال الطلب مباشرة (تم تحديثها لتشمل القياس)
         function submitDirectOrder(index, title, price) {
             const t = translations[currentLang];
             const name = document.getElementById(`d_name_${index}`).value;
             const phone = document.getElementById(`d_phone_${index}`).value;
             const city = document.getElementById(`d_city_${index}`).value;
+            const size = document.getElementById(`d_size_${index}`).value; // سحب القياس
 
             if(!phone) {
                 alert(currentLang === 'ar' ? "المرجو إدخال رقم الهاتف" : "Please enter phone number");
                 return;
             }
 
+            let sizeText = size ? `📏 *${t.msg_size}:* ${size}%0a` : "";
+
             const msg = `👋 *${t.msg_hello}, ${t.msg_order_single}* %0a%0a` +
                         `📦 *${t.products}:* ${title}%0a` +
+                        `${sizeText}` +
                         `ــــــــــــــــــــــــــــــــــــــــــــ%0a` +
                         `👤 *${t.msg_customer}:*%0a` +
                         `▪️ *${t.msg_name}:* ${name}%0a` +
@@ -802,6 +847,7 @@
     </script>
 </body>
 </html>
+
 
 
 
