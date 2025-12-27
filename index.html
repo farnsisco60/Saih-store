@@ -30,19 +30,19 @@
     <style>
         /* --- الألوان الاحترافية (Dark Premium Theme) --- */
         :root { 
-            --primary-color: #3b82f6; /* أزرق احترافي */
+            --primary-color: #3b82f6; 
             --danger-color: #ef4444;
             --success-color: #10b981;
             --gold-color: #fbbf24;
             
             --bg-color: #000000;
-            --card-bg: #18181b; 
+            --card-bg: #121212; /* خلفية داكنة جداً للبطاقات */
             --input-bg: #27272a;
             
             --text-main: #ffffff;
             --text-sub: #a1a1aa;
             
-            --border-color: #3f3f46;
+            --border-color: #27272a;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; outline: none; -webkit-tap-highlight-color: transparent; }
@@ -134,11 +134,11 @@
         /* --- السلايدر والترحيب (Banner) --- */
         .hero-slider { 
             margin-bottom: 30px; border-radius: 0 0 25px 25px; overflow: hidden; 
-            position: relative; height: 250px; /* ارتفاع ثابت للبانر */
+            position: relative; height: 250px; 
         }
         .hero-slider img { 
             width: 100%; height: 100%; object-fit: cover; 
-            filter: brightness(0.6); /* تعتيم بسيط للصورة ليظهر النص */
+            filter: brightness(0.6); 
         }
         .hero-text {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -156,96 +156,144 @@
         .section-title { text-align: center; margin: 40px 0 30px; font-size: 26px; font-weight: 800; color: var(--text-main); }
         .section-title::after { content: ""; display: block; width: 60px; height: 4px; background: var(--danger-color); margin: 10px auto 0; border-radius: 2px; }
         
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; padding: 0 15px; max-width: 1200px; margin: 0 auto; }
+        /* === شبكة المنتجات (Grid) === */
+        .products-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 25px; 
+            padding: 0 15px; 
+            max-width: 1300px; 
+            margin: 0 auto; 
+        }
         
-        /* --- بطاقة المنتج الاحترافية --- */
+        /* === [SHOPIFY STYLE CARD DESIGN] === */
         .product-card { 
             background: var(--card-bg); 
-            border-radius: 16px; padding: 15px; position: relative; 
-            display: flex; flex-direction: column; 
-            transition: transform 0.2s; 
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border-radius: 12px; 
+            position: relative; 
+            display: flex; 
+            flex-direction: column; 
+            transition: all 0.4s ease;
+            overflow: hidden;
+            border: 1px solid transparent; /* حدود شفافة */
         }
         
-        .product-img-container { position: relative; width: 100%; aspect-ratio: 1/1; margin-bottom: 12px; border-radius: 12px; overflow: hidden; background: #fff; }
-        .product-img { width: 100%; height: 100%; object-fit: contain; transition: opacity 0.3s; cursor: zoom-in; }
+        /* تأثير عند التحويم على البطاقة ككل */
+        .product-card:hover {
+            transform: translateY(-8px); /* رفع البطاقة للأعلى */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            border-color: var(--border-color);
+        }
         
+        /* حاوية الصورة (كبيرة ومربعة) */
+        .product-img-container { 
+            position: relative; 
+            width: 100%; 
+            aspect-ratio: 1/1; /* نسبة مربعة 1:1 */
+            overflow: hidden; 
+            background: #fff; /* خلفية بيضاء للصورة لتبرز */
+            border-radius: 12px 12px 0 0;
+        }
+        
+        /* الصورة نفسها */
+        .product-img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+            cursor: pointer;
+            padding: 10px; /* مسافة بسيطة لكي لا تلتصق بالحواف */
+        }
+        
+        /* تكبير الصورة عند الهوفر */
+        .product-card:hover .product-img {
+            transform: scale(1.08); 
+        }
+
+        /* === [أزرار التنقل - سلايدر] === */
         .img-nav-btn {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            width: 30px; height: 30px; background: rgba(0,0,0,0.6);
-            border-radius: 50%; border: none; color: white;
+            position: absolute; 
+            top: 50%; 
+            transform: translateY(-50%) scale(0.8);
+            width: 35px; height: 35px; 
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            border-radius: 50%; 
+            border: none; 
             display: flex; justify-content: center; align-items: center;
             cursor: pointer; font-size: 14px;
-            z-index: 5;
+            z-index: 10;
+            opacity: 0; /* مخفية افتراضياً */
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
-        .img-prev { left: 5px; }
-        .img-next { right: 5px; }
-
-        .discount-tag { position: absolute; top: 12px; right: 12px; background: var(--danger-color); color: white; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: bold; z-index: 2; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
-        body[dir="ltr"] .discount-tag { right: auto; left: 12px; }
-
-        /* نصوص المنتج */
-        .product-title { font-size: 16px; font-weight: 800; margin-bottom: 5px; line-height: 1.4; color: var(--text-main); }
+        .img-nav-btn:hover { background: #fff; transform: translateY(-50%) scale(1.1); }
         
-        /* التقييمات */
-        .social-proof { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 11px; color: var(--text-sub); }
+        /* إظهار الأزرار عند التحويم على البطاقة */
+        .product-card:hover .img-nav-btn { opacity: 1; transform: translateY(-50%) scale(1); }
+        
+        .img-prev { left: 10px; }
+        .img-next { right: 10px; }
+
+        .discount-tag { 
+            position: absolute; top: 10px; left: 10px; /* يسار الصورة */
+            background: var(--danger-color); color: white; 
+            padding: 4px 10px; border-radius: 4px; 
+            font-size: 12px; font-weight: bold; z-index: 5; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        body[dir="rtl"] .discount-tag { left: auto; right: 10px; }
+
+        /* === تفاصيل المنتج (تحت الصورة) === */
+        .product-details { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; }
+
+        .product-title { 
+            font-size: 15px; 
+            font-weight: 700; 
+            margin-bottom: 8px; 
+            line-height: 1.4; 
+            color: var(--text-main); 
+            height: 42px; overflow: hidden; /* تحديد سطرين */
+        }
+        
+        .price-box { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+        .curr-price { color: var(--text-main); font-weight: 800; font-size: 18px; }
+        .old-price { text-decoration: line-through; color: var(--text-sub); font-size: 13px; }
+
+        .social-proof { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text-sub); margin-bottom: 15px; }
         .stars { color: var(--gold-color); }
-        .orders-count { background: rgba(16, 185, 129, 0.15); color: var(--success-color); padding: 2px 6px; border-radius: 4px; font-weight: bold; }
 
-        .price-box { display: flex; gap: 10px; align-items: center; margin-bottom: 15px; font-size: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
-        .curr-price { color: var(--primary-color); font-weight: 900; font-size: 20px; }
-        .old-price { text-decoration: line-through; color: var(--text-sub); font-size: 14px; }
-
-        /* --- استمارة الطلب المدمجة والاحترافية --- */
+        /* زر الإضافة السريع */
+        .action-buttons { display: flex; gap: 10px; margin-top: auto; }
+        
+        /* الاستمارة المدمجة بشكل أنيق */
         .direct-form-container {
-            background: #202023;
-            padding: 12px;
-            border-radius: 12px;
-            border: 1px dashed var(--border-color);
-            margin-top: 5px;
+            background: transparent;
+            padding: 0;
+            margin-top: 10px;
         }
-        .form-header-small {
-            font-size: 12px; color: var(--text-main); margin-bottom: 10px; font-weight: bold;
-            display: flex; align-items: center; gap: 5px;
-        }
-        .form-header-small i { color: var(--success-color); }
-        
         .direct-input {
-            width: 100%; margin-bottom: 10px; padding: 12px;
+            width: 100%; margin-bottom: 8px; padding: 10px;
             background: var(--input-bg); border: 1px solid var(--border-color);
-            color: white; border-radius: 8px; font-size: 13px; font-family: inherit;
-            transition: 0.3s;
+            color: white; border-radius: 6px; font-size: 13px;
         }
-        .direct-input:focus { border-color: var(--primary-color); background: #2f2f32; }
-        
+        .direct-input:focus { border-color: var(--primary-color); }
+
         .confirm-btn {
-            width: 100%; padding: 14px; background: var(--success-color); /* أخضر للطلب */
-            color: white; border: none; border-radius: 10px; font-weight: 800; font-size: 15px;
-            cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px;
+            width: 100%; padding: 12px; background: var(--text-main); /* زر أبيض/أسود كلاسيكي */
+            color: var(--bg-color); border: none; border-radius: 6px; 
+            font-weight: 800; font-size: 14px;
+            cursor: pointer; transition: 0.2s;
             margin-top: 5px;
-            animation: pulse-animation 2s infinite;
         }
-        
-        @keyframes pulse-animation {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
+        .confirm-btn:hover { background: var(--primary-color); color: white; }
 
-        .trust-badge {
-            margin-top: 12px; text-align: center; font-size: 10px; color: var(--text-sub);
-            display: flex; justify-content: center; gap: 15px;
-        }
-        .trust-badge span { display: flex; align-items: center; gap: 4px; color: var(--text-sub); }
-        .trust-badge i { color: var(--primary-color); }
-
-        /* زر الإضافة للسلة الصغير */
+        /* --- باقي العناصر (Trust, Cart Mini) --- */
         .cart-mini-btn {
             text-align: center; margin-top: 10px; font-size: 12px; 
             color: var(--text-sub); cursor: pointer; text-decoration: underline;
         }
-
+        
         /* --- الفوتر --- */
         .mobile-bottom-nav { 
             display: none; position: fixed; bottom: 0; left: 0; width: 100%; 
@@ -320,14 +368,14 @@
             .mobile-menu-btn { display: block; } 
             .mobile-bottom-nav { display: flex; } 
             .nav-links-desktop { display: none; }
-            .products-grid { grid-template-columns: 1fr; } /* بطاقة واحدة في السطر للموبايل */
+            .products-grid { grid-template-columns: 1fr; gap: 15px; } /* بطاقة واحدة في السطر للموبايل */
             .hero-slider { height: 200px; }
         }
 
         /* --- تحسين العرض على الحاسوب والتلفاز --- */
         @media (min-width: 769px) {
             .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
                 max-width: 95%; 
             }
             .header-container {
@@ -604,63 +652,56 @@
                     const currency = translations[currentLang].currency;
                     const t = translations[currentLang];
 
+                    // --- أزرار السلايدر الاحترافية ---
                     let imgControls = '';
                     if (images.length > 1) {
                         imgControls = `
-                            <button class="img-nav-btn img-prev" onclick="changeImage(${index}, -1)">&#10094;</button>
-                            <button class="img-nav-btn img-next" onclick="changeImage(${index}, 1)">&#10095;</button>
+                            <div class="img-nav-btn img-prev" onclick="changeImage(${index}, -1, event)"><i class="fas fa-chevron-left"></i></div>
+                            <div class="img-nav-btn img-next" onclick="changeImage(${index}, 1, event)"><i class="fas fa-chevron-right"></i></div>
                         `;
                     }
 
                     // --- بناء الاستمارة المدمجة (مع خانة القياس) ---
                     const directFormHTML = `
                         <div class="direct-form-container">
-                            <div class="form-header-small">
-                                <i class="fas fa-fire"></i> ${t.fill_info}
-                            </div>
                             <input type="text" id="d_name_${index}" class="direct-input" placeholder="${t.plh_name}">
                             <input type="tel" id="d_phone_${index}" class="direct-input" placeholder="${t.plh_phone} *">
                             <input type="text" id="d_city_${index}" class="direct-input" placeholder="${t.plh_city}">
-                            <!-- خانة القياس -->
                             <input type="text" id="d_size_${index}" class="direct-input" placeholder="${t.plh_size}">
                             
                             <button class="confirm-btn" onclick="submitDirectOrder(${index}, '${safeTitle}', '${price}')">
-                                ${t.send_order} <i class="fas fa-check-circle"></i>
+                                ${t.send_order}
                             </button>
                         </div>
                     `;
 
+                    // --- هيكل البطاقة بأسلوب Shopify ---
                     const html = `
                         <div class="product-card">
-                            ${disc ? `<div class="discount-tag">${disc}</div>` : ''}
                             <div class="product-img-container">
+                                ${disc ? `<div class="discount-tag">${disc}</div>` : ''}
                                 ${imgControls}
                                 <img src="${images[0]}" class="product-img" id="img-${index}" data-idx="0" onclick="openZoom(${index}, 0)" onerror="this.src='https://via.placeholder.com/150'">
                             </div>
                             
-                            <!-- التقييم والآراء (Social Proof) -->
-                            <div class="social-proof">
-                                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                <div class="orders-count">${t.reviews_text}</div>
-                            </div>
+                            <div class="product-details">
+                                <div class="social-proof">
+                                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                    <span>(142 reviews)</span>
+                                </div>
 
-                            <div class="product-title">${title}</div>
-                            
-                            <div class="price-box">
-                                <span class="curr-price">${price} ${currency}</span>
-                                ${old ? `<span class="old-price">${old}</span>` : ''}
-                            </div>
-                            
-                            <!-- الاستمارة مباشرة في الواجهة -->
-                            ${directFormHTML}
+                                <div class="product-title">${title}</div>
+                                
+                                <div class="price-box">
+                                    <span class="curr-price">${price} ${currency}</span>
+                                    ${old ? `<span class="old-price">${old}</span>` : ''}
+                                </div>
+                                
+                                ${directFormHTML}
 
-                            <div class="trust-badge">
-                                <span><i class="fas fa-shield-alt"></i> ${t.trusted}</span>
-                                <span><i class="fas fa-shipping-fast"></i> ${t.free_shipping}</span>
-                            </div>
-
-                            <div class="cart-mini-btn" onclick="addToCart('${safeTitle}', '${price}', '${safeImg}')">
-                                <i class="fas fa-cart-plus"></i> ${t.add_to_cart_text}
+                                <div class="cart-mini-btn" onclick="addToCart('${safeTitle}', '${price}', '${safeImg}')">
+                                    <i class="fas fa-cart-plus"></i> ${t.add_to_cart_text}
+                                </div>
                             </div>
                         </div>
                     `;
@@ -708,14 +749,19 @@
             window.open(`https://wa.me/${MY_PHONE}?text=${msg}`, '_blank');
         }
 
-        function changeImage(productIndex, direction) {
+        function changeImage(productIndex, direction, event) {
+            if(event) event.stopPropagation(); // لمنع فتح التكبير عند النقر على السهم
             const imgElement = document.getElementById(`img-${productIndex}`);
             let currentImgIdx = parseInt(imgElement.getAttribute('data-idx'));
             const images = productImages[productIndex];
             let newIdx = currentImgIdx + direction;
             if (newIdx >= images.length) newIdx = 0;
             if (newIdx < 0) newIdx = images.length - 1;
-            imgElement.src = images[newIdx];
+            imgElement.style.opacity = '0'; // تأثير انتقال
+            setTimeout(() => {
+                imgElement.src = images[newIdx];
+                imgElement.style.opacity = '1';
+            }, 200);
             imgElement.setAttribute('data-idx', newIdx);
             imgElement.onclick = function() { openZoom(productIndex, newIdx); };
         }
